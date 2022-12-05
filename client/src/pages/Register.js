@@ -24,15 +24,14 @@ function Register() {
           overflow: 'hidden',
         }}
       >
-        <Typography
-          level="h3"
-          fontWeight="xl"
+        <Link
+          component="a"
           sx={{
             paddingBottom: '1.5rem',
           }}
         >
-          Jobster.
-        </Typography>
+          <img src="/jobster-logo.svg" width={150} height={35} alt="" />
+        </Link>
         <Sheet
           component="li"
           variant="outlined"
