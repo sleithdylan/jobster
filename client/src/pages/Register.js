@@ -6,11 +6,10 @@ import CssBaseline from '@mui/joy/CssBaseline';
 import Typography from '@mui/joy/Typography';
 import Button from '@mui/joy/Button';
 import TextField from '@mui/joy/TextField';
-import Checkbox from '@mui/joy/Checkbox';
 import Sheet from '@mui/joy/Sheet';
 import { Grid } from '@mui/material';
 
-function Login() {
+function Register() {
   return (
     <>
       <CssBaseline />
@@ -45,9 +44,19 @@ function Login() {
         >
           <Grid flexDirection="column" minWidth={350}>
             <Typography level="h4" fontWeight="xl">
-              Sign in to your account
+              Create an account
             </Typography>
             <TextField
+              type="text"
+              label="Your name"
+              placeholder="e.g. Bonnie Green"
+              variant="outlined"
+              sx={{
+                margin: '1.5rem 0',
+              }}
+            />
+            <TextField
+              type="text"
               label="Your email"
               placeholder="name@company.com"
               variant="outlined"
@@ -61,26 +70,20 @@ function Login() {
               placeholder="********"
               variant="outlined"
             />
-            <Checkbox
-              size="sm"
-              label="Remember me"
-              sx={{
-                margin: '1.5rem 0',
-              }}
-            />
+
             <Button
               variant="solid"
               fullWidth
               sx={{
-                marginBottom: '1.5rem',
+                margin: '1.5rem 0',
               }}
             >
-              Sign in
+              Create an account
             </Button>
             <Typography level="body2">
-              Don’t have an account yet?{' '}
-              <Link component={RouterLink} to="/register" fontWeight="lg">
-                Sign up
+              Already have an account?{' '}
+              <Link component={RouterLink} to="/" fontWeight="lg">
+                Login here
               </Link>
             </Typography>
           </Grid>
@@ -90,4 +93,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;
