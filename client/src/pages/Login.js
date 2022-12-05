@@ -7,8 +7,9 @@ import Button from '@mui/joy/Button';
 import TextField from '@mui/joy/TextField';
 import Checkbox from '@mui/joy/Checkbox';
 import Sheet from '@mui/joy/Sheet';
-import { Grid } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import Notification from '../components/Alert';
+import { useAppContext } from '../context/appContext';
 
 const initialState = {
   name: '',
@@ -21,17 +22,26 @@ const initialState = {
 function Login() {
   const [values, setValues] = useState(initialState);
 
+  const { showAlert, displayAlert } = useAppContext();
+
   const toggleMember = () => {
     setValues({ ...values, isMember: !values.isMember });
   };
 
   const handleChange = (e) => {
-    console.log(e.target.value);
+    setValues({ ...values, [e.target.name]: e.target.value });
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target);
+
+    const { name, email, password, isMember } = values;
+
+    if (!email || !password || (!isMember && !name)) {
+      displayAlert();
+      return;
+    }
+    console.log(values);
   };
 
   return (
@@ -65,18 +75,20 @@ function Login() {
           }}
         >
           <Grid flexDirection="column" minWidth={350}>
-            <Typography
-              level="h4"
-              fontWeight="xl"
-              sx={{
-                paddingBottom: '1.5rem',
-              }}
-            >
+            <Typography level="h4" fontWeight="xl">
               {values.isMember
                 ? 'Sign in to your account'
                 : ' Create an account'}
             </Typography>
-            {values.showAlert && <Notification />}
+            {showAlert && (
+              <Box
+                sx={{
+                  margin: '1.5rem 0',
+                }}
+              >
+                <Notification />
+              </Box>
+            )}
             <form onSubmit={onSubmit}>
               {!values.isMember && (
                 <TextField
@@ -116,15 +128,29 @@ function Login() {
                   margin: '1.5rem 0',
                 }}
               />
-              <Button
-                variant="solid"
-                fullWidth
-                sx={{
-                  marginBottom: '1.5rem',
-                }}
-              >
-                Sign in
-              </Button>
+              {values.isMember ? (
+                <Button
+                  type="submit"
+                  variant="solid"
+                  fullWidth
+                  sx={{
+                    marginBottom: '1.5rem',
+                  }}
+                >
+                  Sign in
+                </Button>
+              ) : (
+                <Button
+                  type="submit"
+                  variant="solid"
+                  fullWidth
+                  sx={{
+                    marginBottom: '1.5rem',
+                  }}
+                >
+                  Create an account
+                </Button>
+              )}
             </form>
             {values.isMember ? (
               <Typography level="body2">
