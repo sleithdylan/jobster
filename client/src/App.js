@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Error from './pages/Error';
 import Login from './pages/Login';
 import Sample from './pages/Sample';
 
@@ -11,7 +12,7 @@ function App() {
         <Route path="/register" element={null} />
         <Route path="/sample" element={<Sample />} />
         <Route path="/" element={<Login />} />
-        <Route path="*" element={<h1>Error</h1>} />
+        <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
   );

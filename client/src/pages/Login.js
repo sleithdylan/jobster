@@ -1,6 +1,7 @@
 import React from 'react';
-import Link from '@mui/joy/Link';
 
+import { Link as RouterLink } from 'react-router-dom';
+import Link from '@mui/joy/Link';
 import CssBaseline from '@mui/joy/CssBaseline';
 import Typography from '@mui/joy/Typography';
 import Button from '@mui/joy/Button';
@@ -56,6 +57,7 @@ function Login() {
               }}
             />
             <TextField
+              type="password"
               label="Password"
               placeholder="********"
               variant="outlined"
@@ -70,7 +72,9 @@ function Login() {
             >
               <Checkbox size="sm" label="Remember me" />
               <Typography level="body2" fontWeight="lg">
-                <Link>Forgot password?</Link>
+                <Link component={RouterLink} to="/">
+                  Forgot password?
+                </Link>
               </Typography>
             </Box>
             <Button
@@ -83,7 +87,10 @@ function Login() {
               Sign in
             </Button>
             <Typography level="body2" fontWeight="lg">
-              Don’t have an account yet? <Link>Sign up</Link>
+              Don’t have an account yet?{' '}
+              <Link component={RouterLink} to="/register">
+                Sign up
+              </Link>
             </Typography>
           </Grid>
         </Sheet>
