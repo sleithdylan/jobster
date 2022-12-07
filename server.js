@@ -6,6 +6,8 @@ const port = process.env.PORT || 5000;
 import dotenv from 'dotenv';
 dotenv.config();
 
+import morgan from 'morgan';
+
 // DB and authenticateUser
 import connectDB from './db/connect.js';
 
@@ -16,6 +18,10 @@ import jobsRouter from './routes/jobsRoutes.js';
 // Middleware
 import notFoundMiddleware from './middleware/not-found.js';
 import errorHandlerMiddleware from './middleware/error-handler.js';
+
+if (process.env.NODE_ENV !== 'production') {
+  app.use(morgan('dev'));
+}
 
 // Make json data available in controllers
 app.use(express.json());
