@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Link from '@mui/joy/Link';
 import CssBaseline from '@mui/joy/CssBaseline';
@@ -20,9 +21,11 @@ const initialState = {
 };
 
 function Login() {
+  const navigate = useNavigate();
   const [values, setValues] = useState(initialState);
 
-  const { showAlert, displayAlert } = useAppContext();
+  const { user, isLoading, showAlert, displayAlert, registerUser } =
+    useAppContext();
 
   const toggleMember = () => {
     setValues({ ...values, isMember: !values.isMember });
@@ -41,8 +44,25 @@ function Login() {
       displayAlert();
       return;
     }
+
+    const currentUser = { name, email, password };
+
+    if (isMember) {
+      console.log('Already a member');
+    } else {
+      registerUser(currentUser);
+    }
+
     console.log(values);
   };
+
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        navigate('/dashboard');
+      }, 3000);
+    }
+  }, [user, navigate]);
 
   return (
     <>
@@ -97,6 +117,8 @@ function Login() {
                   name="name"
                   placeholder="e.g. Bonnie Green"
                   variant="outlined"
+                  onChange={handleChange}
+                  value={values.name}
                   sx={{
                     margin: '1.5rem 0',
                   }}
@@ -109,6 +131,7 @@ function Login() {
                 placeholder="name@company.com"
                 variant="outlined"
                 onChange={handleChange}
+                value={values.email}
                 sx={{
                   margin: '1.5rem 0',
                 }}
@@ -120,6 +143,7 @@ function Login() {
                 placeholder="********"
                 variant="outlined"
                 onChange={handleChange}
+                value={values.password}
               />
               <Checkbox
                 size="sm"
@@ -144,6 +168,7 @@ function Login() {
                   type="submit"
                   variant="solid"
                   fullWidth
+                  disabled={isLoading}
                   sx={{
                     marginBottom: '1.5rem',
                   }}
