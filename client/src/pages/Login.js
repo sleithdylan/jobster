@@ -57,7 +57,7 @@ function Login() {
   useEffect(() => {
     if (user) {
       setTimeout(() => {
-        navigate('/dashboard');
+        navigate('/dashboard/stats');
       }, 3000);
     }
   }, [user, navigate]);
