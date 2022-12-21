@@ -1,7 +1,4 @@
 import IconButton from '@mui/joy/IconButton';
-import { useColorScheme } from '@mui/joy/styles';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
-import LightModeIcon from '@mui/icons-material/LightMode';
 import MenuIcon from '@mui/icons-material/Menu';
 import React from 'react';
 import Layout from '../../components/Layout';
@@ -14,34 +11,6 @@ import Menu from '@mui/joy/Menu';
 import MenuItem from '@mui/joy/MenuItem';
 import { useAppContext } from '../../context/appContext';
 import { Link } from 'react-router-dom';
-
-function ColorSchemeToggle() {
-  const { mode, setMode } = useColorScheme();
-  const [mounted, setMounted] = React.useState(false);
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
-  if (!mounted) {
-    return <IconButton size="sm" variant="outlined" color="primary" />;
-  }
-  return (
-    <IconButton
-      id="toggle-mode"
-      size="sm"
-      variant="outlined"
-      color="primary"
-      onClick={() => {
-        if (mode === 'light') {
-          setMode('dark');
-        } else {
-          setMode('light');
-        }
-      }}
-    >
-      {mode === 'light' ? <DarkModeIcon /> : <LightModeIcon />}
-    </IconButton>
-  );
-}
 
 function Stats() {
   const { logoutUser, user } = useAppContext();
@@ -108,12 +77,15 @@ function Stats() {
           >
             <IconButton
               size="sm"
-              variant="plain"
               color="primary"
-              aria-controls={open ? 'basic-menu' : undefined}
-              aria-haspopup="true"
-              aria-expanded={open ? 'true' : undefined}
-              sx={{ '--IconButton-size': '24px', padding: '0.25rem 0.75rem' }}
+              sx={{
+                '--IconButton-size': '24px',
+                padding: '0.25rem 0.75rem',
+                background: 'none',
+                '&:hover': {
+                  background: 'none',
+                },
+              }}
               onClick={handleClick}
             >
               <Avatar alt="Remy Sharp" size="md" />
@@ -125,17 +97,16 @@ function Stats() {
               <KeyboardArrowDownIcon fontSize="small" color="primary" />
             </IconButton>
             <Menu
+              id="menu"
               anchorEl={anchorEl}
               open={open}
               onClose={handleClose}
-              sx={{ minWidth: '11.25rem' }}
             >
               <Link to="profile" style={{ textDecoration: 'none' }}>
                 <MenuItem>Profile</MenuItem>
               </Link>
               <MenuItem onClick={logoutUser}>Logout</MenuItem>
             </Menu>
-            <ColorSchemeToggle />
           </Box>
         </Layout.Header>
         <Layout.SideNav>
