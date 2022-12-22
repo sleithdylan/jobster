@@ -3,7 +3,7 @@ import Sidebar from '../../components/Sidebar';
 import Layout from '../../components/Layout';
 import { useAppContext } from '../../context/appContext';
 import Alert from '../../components/Alert';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import {
   IconButton,
@@ -27,9 +27,10 @@ function Profile() {
   const [email, setEmail] = useState(user?.email);
   const [lastName, setLastName] = useState(user?.lastName);
   const [location, setLocation] = useState(user?.location);
-  const [drawerOpen, setDrawerOpen] = React.useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+  const navigate = useNavigate();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -230,6 +231,7 @@ function Profile() {
                     borderColor: '#d8d8df',
                   },
                 }}
+                onClick={() => navigate(-1)}
               >
                 Cancel
               </Button>
