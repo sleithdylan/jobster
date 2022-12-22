@@ -19,6 +19,7 @@ import {
   Option,
   selectClasses,
   FormLabel,
+  Divider,
 } from '@mui/joy';
 import { Grid } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -193,9 +194,14 @@ function AddJob() {
               }}
             >
               <Grid container columns={12}>
-                <Grid item xs={12} md={4}>
+                <Grid item xs={12} md={4} sx={{ padding: '0 0 1rem 0' }}>
                   <Typography level="h6">
                     {isEditing ? 'Edit Job' : 'Add Job'}
+                  </Typography>
+                  <Typography level="body2">
+                    {isEditing
+                      ? 'Edit all of your job details here...'
+                      : 'Add all of your job details here...'}
                   </Typography>
                 </Grid>
                 <Grid item xs={12} md={4}>
@@ -223,6 +229,10 @@ function AddJob() {
                   </Box>
                 </Grid>
                 <Grid item xs={12} md={4}></Grid>
+                <Grid item xs={12} md={8}>
+                  <Divider sx={{ mb: 2, mt: 1 }} />
+                </Grid>
+                <Grid item xs={12} md={4}></Grid>
                 <Grid item xs={12} md={5}>
                   <Box sx={{ padding: '0 1rem 1rem 1rem' }}>
                     <TextField
@@ -236,6 +246,10 @@ function AddJob() {
                   </Box>
                 </Grid>
                 <Grid item xs={12} md={3}></Grid>
+                <Grid item xs={12} md={4}></Grid>
+                <Grid item xs={12} md={8}>
+                  <Divider sx={{ mb: 2, mt: 1 }} />
+                </Grid>
                 <Grid item xs={12} md={4}></Grid>
                 <Grid item xs={12} md={4}>
                   <Box sx={{ padding: '0 1rem 1rem 1rem' }}>

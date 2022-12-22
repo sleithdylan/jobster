@@ -15,6 +15,7 @@ import {
   Sheet,
   TextField,
   Button,
+  Divider,
 } from '@mui/joy';
 import { Grid } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -154,7 +155,7 @@ function Profile() {
               }}
             >
               <Grid container columns={12}>
-                <Grid item xs={12} md={4}>
+                <Grid item xs={12} md={4} sx={{ padding: '0 0 1rem 0' }}>
                   <Typography level="h6">Profile</Typography>
                   <Typography level="body2">
                     This information will be displayed publicly so be careful
@@ -186,6 +187,10 @@ function Profile() {
                   </Box>
                 </Grid>
                 <Grid item xs={12} md={4}></Grid>
+                <Grid item xs={12} md={8}>
+                  <Divider sx={{ mb: 2, mt: 1 }} />
+                </Grid>
+                <Grid item xs={12} md={4}></Grid>
                 <Grid item xs={12} md={5}>
                   <Box sx={{ padding: '0 1rem 1rem 1rem' }}>
                     <TextField
@@ -197,6 +202,10 @@ function Profile() {
                       onChange={(e) => setEmail(e.target.value)}
                     />
                   </Box>
+                </Grid>
+                <Grid item xs={12} md={4}></Grid>
+                <Grid item xs={12} md={8}>
+                  <Divider sx={{ mb: 2, mt: 1 }} />
                 </Grid>
                 <Grid item xs={12} md={4}></Grid>
                 <Grid item xs={12} md={4}>
