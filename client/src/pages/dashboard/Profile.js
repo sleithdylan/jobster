@@ -18,7 +18,7 @@ import Button from '@mui/joy/Button';
 import Alert from '../../components/Alert';
 
 function Profile() {
-  const { logoutUser, user, showAlert, updateUser, isLoading } =
+  const { logoutUser, user, displayAlert, showAlert, updateUser, isLoading } =
     useAppContext();
   const [name, setName] = useState(user?.name);
   const [email, setEmail] = useState(user?.email);
@@ -39,10 +39,10 @@ function Profile() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // if (!name || !lastName || !email || !location) {
-    //   displayAlert();
-    //   return;
-    // }
+    if (!name || !lastName || !email || !location) {
+      displayAlert();
+      return;
+    }
 
     updateUser({ name, email, lastName, location });
   };
