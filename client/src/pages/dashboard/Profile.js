@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import IconButton from '@mui/joy/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Layout from '../../components/Layout';
@@ -15,9 +15,15 @@ import Sheet from '@mui/joy/Sheet';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/joy/TextField';
 import Button from '@mui/joy/Button';
+import Alert from '../../components/Alert';
 
 function Profile() {
-  const { logoutUser, user } = useAppContext();
+  const { logoutUser, user, showAlert, updateUser, isLoading } =
+    useAppContext();
+  const [name, setName] = useState(user?.name);
+  const [email, setEmail] = useState(user?.email);
+  const [lastName, setLastName] = useState(user?.lastName);
+  const [location, setLocation] = useState(user?.location);
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -28,6 +34,17 @@ function Profile() {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // if (!name || !lastName || !email || !location) {
+    //   displayAlert();
+    //   return;
+    // }
+
+    updateUser({ name, email, lastName, location });
   };
 
   return (
@@ -117,88 +134,112 @@ function Profile() {
           <Sidebar />
         </Layout.SideNav>
         <Layout.Main style={{ backgroundColor: '#F7F7F8' }}>
-          <Sheet
-            component="div"
-            variant="outlined"
-            sx={{
-              borderRadius: 'sm',
-              p: 2,
-              listStyle: 'none',
-            }}
-          >
-            <Grid container columns={12}>
-              <Grid item xs={12} md={4}>
-                <Typography level="h6">Profile</Typography>
-                <Typography level="body2">
-                  This information will be displayed publicly so be careful what
-                  you share.
-                </Typography>
-              </Grid>
-              <Grid item xs={12} md={4}>
-                <Box sx={{ padding: '0 1rem 1rem 1rem' }}>
-                  <TextField
-                    label="First name"
-                    placeholder="e.g. Bonnie"
-                    variant="outlined"
-                  />
-                </Box>
-              </Grid>
-              <Grid item xs={12} md={4}>
-                <Box sx={{ padding: '0 1rem 1rem 1rem' }}>
-                  <TextField
-                    label="Last name"
-                    placeholder="e.g. Green"
-                    variant="outlined"
-                  />
-                </Box>
-              </Grid>
-              <Grid item xs={12} md={4}></Grid>
-              <Grid item xs={12} md={5}>
-                <Box sx={{ padding: '0 1rem 1rem 1rem' }}>
-                  <TextField
-                    label="Email address"
-                    placeholder="name@company.com"
-                    variant="outlined"
-                  />
-                </Box>
-              </Grid>
-              <Grid item xs={12} md={4}></Grid>
-              <Grid item xs={12} md={4}>
-                <Box sx={{ padding: '0 1rem 1rem 1rem' }}>
-                  <TextField
-                    label="Location"
-                    placeholder="Dublin"
-                    variant="outlined"
-                  />
-                </Box>
-              </Grid>
-            </Grid>
-          </Sheet>
-          <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <Button
+          <form action="post" onSubmit={handleSubmit}>
+            {showAlert && (
+              <Box sx={{ mb: 2 }}>
+                <Alert />
+              </Box>
+            )}
+            <Sheet
+              component="div"
               variant="outlined"
-              color="neutral"
               sx={{
-                px: 4,
-                mt: 3,
-                mr: 2,
-                backgroundColor: '#fff',
-                '&:hover': {
-                  backgroundColor: '#F7F7F8',
-                  borderColor: '#d8d8df',
-                },
-                '&:active': {
-                  backgroundColor: '#EBEBEF',
-                  borderColor: '#d8d8df',
-                },
+                borderRadius: 'sm',
+                p: 2,
+                listStyle: 'none',
               }}
             >
-              Cancel
-            </Button>
-            <Button variant="solid" sx={{ px: 4, mt: 3 }}>
-              Save
-            </Button>
-          </Box>
+              <Grid container columns={12}>
+                <Grid item xs={12} md={4}>
+                  <Typography level="h6">Profile</Typography>
+                  <Typography level="body2">
+                    This information will be displayed publicly so be careful
+                    what you share.
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <Box sx={{ padding: '0 1rem 1rem 1rem' }}>
+                    <TextField
+                      label="First name"
+                      placeholder="e.g. Bonnie"
+                      variant="outlined"
+                      name="name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </Box>
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <Box sx={{ padding: '0 1rem 1rem 1rem' }}>
+                    <TextField
+                      label="Last name"
+                      placeholder="e.g. Green"
+                      variant="outlined"
+                      name="lastName"
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
+                    />
+                  </Box>
+                </Grid>
+                <Grid item xs={12} md={4}></Grid>
+                <Grid item xs={12} md={5}>
+                  <Box sx={{ padding: '0 1rem 1rem 1rem' }}>
+                    <TextField
+                      label="Email address"
+                      placeholder="name@company.com"
+                      variant="outlined"
+                      name="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </Box>
+                </Grid>
+                <Grid item xs={12} md={4}></Grid>
+                <Grid item xs={12} md={4}>
+                  <Box sx={{ padding: '0 1rem 1rem 1rem' }}>
+                    <TextField
+                      label="Location"
+                      placeholder="Dublin"
+                      variant="outlined"
+                      name="location"
+                      value={location}
+                      onChange={(e) => setLocation(e.target.value)}
+                    />
+                  </Box>
+                </Grid>
+              </Grid>
+            </Sheet>
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+              <Button
+                variant="outlined"
+                color="neutral"
+                sx={{
+                  px: 4,
+                  mt: 3,
+                  mr: 2,
+                  backgroundColor: '#fff',
+                  '&:hover': {
+                    backgroundColor: '#F7F7F8',
+                    borderColor: '#d8d8df',
+                  },
+                  '&:active': {
+                    backgroundColor: '#EBEBEF',
+                    borderColor: '#d8d8df',
+                  },
+                }}
+              >
+                Cancel
+              </Button>
+              <Button
+                variant="solid"
+                sx={{ px: 4, mt: 3 }}
+                type="submit"
+                disabled={isLoading}
+              >
+                {isLoading ? 'Please wait...' : 'Save'}
+              </Button>
+            </Box>
+          </form>
         </Layout.Main>
       </Layout.Root>
     </>
