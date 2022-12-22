@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-
-import Link from '@mui/joy/Link';
-import CssBaseline from '@mui/joy/CssBaseline';
-import Typography from '@mui/joy/Typography';
-import Button from '@mui/joy/Button';
-import TextField from '@mui/joy/TextField';
-import Checkbox from '@mui/joy/Checkbox';
-import Sheet from '@mui/joy/Sheet';
-import { Box, Grid } from '@mui/material';
 import Notification from '../components/Alert';
 import { useAppContext } from '../context/appContext';
+import { useNavigate } from 'react-router-dom';
+
+import {
+  Link,
+  CssBaseline,
+  Typography,
+  Button,
+  TextField,
+  Checkbox,
+  Sheet,
+} from '@mui/joy';
+import { Box, Grid } from '@mui/material';
 
 const initialState = {
   name: '',

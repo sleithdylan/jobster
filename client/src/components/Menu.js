@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { useState, useRef } from 'react';
+
+import { MenuItem } from '@mui/joy';
 import JoyMenu from '@mui/joy/Menu';
-import MenuItem from '@mui/joy/MenuItem';
 
 function Menu({ control, menus, id }) {
   const [anchorEl, setAnchorEl] = useState(null);

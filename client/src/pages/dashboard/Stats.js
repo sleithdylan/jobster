@@ -1,16 +1,12 @@
-import IconButton from '@mui/joy/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import React from 'react';
 import Layout from '../../components/Layout';
 import Sidebar from '../../components/Sidebar';
-import Box from '@mui/joy/Box';
-import Typography from '@mui/joy/Typography';
-import Avatar from '@mui/joy/Avatar';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import Menu from '@mui/joy/Menu';
-import MenuItem from '@mui/joy/MenuItem';
 import { useAppContext } from '../../context/appContext';
 import { Link } from 'react-router-dom';
+
+import { IconButton, Box, Typography, Avatar, Menu, MenuItem } from '@mui/joy';
+import MenuIcon from '@mui/icons-material/Menu';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 function Stats() {
   const { logoutUser, user } = useAppContext();

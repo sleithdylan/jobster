@@ -1,15 +1,18 @@
-import IconButton from '@mui/joy/IconButton';
-import List from '@mui/joy/List';
-import ListItem from '@mui/joy/ListItem';
-import ListItemButton from '@mui/joy/ListItemButton';
-import ListItemContent from '@mui/joy/ListItemContent';
-import ListItemDecorator from '@mui/joy/ListItemDecorator';
-import ListSubheader from '@mui/joy/ListSubheader';
+import { Link } from 'react-router-dom';
+
+import {
+  IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemContent,
+  ListItemDecorator,
+  ListSubheader,
+} from '@mui/joy';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import AnalyticsIcon from '@mui/icons-material/Analytics';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
-import { Link } from 'react-router-dom';
 
 function Sidebar() {
   return (

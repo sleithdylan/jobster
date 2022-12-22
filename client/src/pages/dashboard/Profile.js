@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
-import IconButton from '@mui/joy/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import Layout from '../../components/Layout';
 import Sidebar from '../../components/Sidebar';
-import Box from '@mui/joy/Box';
-import Typography from '@mui/joy/Typography';
-import Avatar from '@mui/joy/Avatar';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import Menu from '@mui/joy/Menu';
-import MenuItem from '@mui/joy/MenuItem';
+import Layout from '../../components/Layout';
 import { useAppContext } from '../../context/appContext';
-import { Link } from 'react-router-dom';
-import Sheet from '@mui/joy/Sheet';
-import Grid from '@mui/material/Grid';
-import TextField from '@mui/joy/TextField';
-import Button from '@mui/joy/Button';
 import Alert from '../../components/Alert';
+import { Link } from 'react-router-dom';
+
+import {
+  IconButton,
+  Box,
+  Typography,
+  Avatar,
+  Menu,
+  MenuItem,
+  Sheet,
+  TextField,
+  Button,
+} from '@mui/joy';
+import { Grid } from '@mui/material';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import MenuIcon from '@mui/icons-material/Menu';
 
 function Profile() {
   const { logoutUser, user, displayAlert, showAlert, updateUser, isLoading } =

@@ -1,18 +1,14 @@
 import React from 'react';
-
 import { Link as RouterLink } from 'react-router-dom';
-import Link from '@mui/joy/Link';
-import CssBaseline from '@mui/joy/CssBaseline';
-import Typography from '@mui/joy/Typography';
+
+import { Link, CssBaseline, Typography, Box } from '@mui/joy';
 import { Grid } from '@mui/material';
-import Box from '@mui/joy/Box';
 import EastIcon from '@mui/icons-material/East';
 
 function Error() {
   return (
     <>
       <CssBaseline />
-
       <Grid
         flexDirection="column"
         justifyContent="center"
