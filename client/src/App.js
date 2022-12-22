@@ -17,14 +17,14 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route
-          path="/dashboard/stats"
+          path="/dashboard"
           element={
             <ProtectedRoute>
               <SharedLayout />
             </ProtectedRoute>
           }
         >
-          <Route index element={<Stats />} />
+          <Route path="stats" element={<Stats />} />
           <Route path="all-jobs" element={<AllJobs />} />
           <Route path="add-job" element={<AddJob />} />
           <Route path="profile" element={<Profile />} />

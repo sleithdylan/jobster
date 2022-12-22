@@ -30,8 +30,17 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import moment from 'moment';
 
 function AllJobs() {
-  const { logoutUser, user, getJobs, jobs, isLoading, page, totalJobs } =
-    useAppContext();
+  const {
+    logoutUser,
+    user,
+    getJobs,
+    jobs,
+    isLoading,
+    page,
+    totalJobs,
+    setEditJob,
+    deleteJob,
+  } = useAppContext();
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -130,7 +139,7 @@ function AllJobs() {
               open={open}
               onClose={handleClose}
             >
-              <Link to="profile" style={{ textDecoration: 'none' }}>
+              <Link to="/dashboard/profile" style={{ textDecoration: 'none' }}>
                 <MenuItem>Profile</MenuItem>
               </Link>
               <MenuItem onClick={logoutUser}>Logout</MenuItem>
@@ -328,83 +337,104 @@ function AllJobs() {
               {jobs.length !== 0 ? (
                 jobs.map((job) => {
                   return (
-                    <Sheet
-                      key={job._id}
-                      {...job}
-                      component="li"
-                      variant="outlined"
-                      sx={{
-                        borderRadius: 'sm',
-                        p: 2,
-                        listStyle: 'none',
-                      }}
+                    <Link
+                      to={`/dashboard/stats/add-job`}
+                      onClick={() => setEditJob(job._id)}
+                      style={{ textDecoration: 'none' }}
                     >
-                      <Box
+                      <Sheet
+                        key={job._id}
+                        {...job}
+                        component="li"
+                        variant="outlined"
                         sx={{
-                          display: 'flex',
-                          justifyContent: 'space-between',
-                          gap: 2,
+                          borderRadius: 'sm',
+                          p: 2,
+                          listStyle: 'none',
+                          cursor: 'pointer',
+                          '&:hover': {
+                            borderColor: '#8F8FA3',
+                          },
                         }}
                       >
                         <Box
                           sx={{
                             display: 'flex',
-                            alignItems: 'center',
+                            justifyContent: 'space-between',
                             gap: 2,
                           }}
                         >
-                          <Avatar src="https://app.outboundsales.io/api/logo/yahoo.com" />
-                          <Typography>{job.company}</Typography>
+                          <Box
+                            sx={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: 2,
+                            }}
+                          >
+                            <Avatar src="https://app.outboundsales.io/api/logo/yahoo.com" />
+                            <Typography>{job.company}</Typography>
+                          </Box>
+                          <Chip
+                            variant="soft"
+                            color={
+                              job.status === 'declined'
+                                ? 'danger'
+                                : job.status === 'interview'
+                                ? 'primary'
+                                : job.status === 'pending'
+                                ? 'warning'
+                                : null
+                            }
+                            sx={{
+                              borderRadius: '5px',
+                              textTransform: 'capitalize',
+                            }}
+                          >
+                            {job.status}
+                          </Chip>
                         </Box>
-                        <Chip
-                          variant="soft"
-                          color={
-                            job.status === 'declined'
-                              ? 'danger'
-                              : job.status === 'interview'
-                              ? 'primary'
-                              : job.status === 'pending'
-                              ? 'warning'
-                              : null
-                          }
-                          sx={{
-                            borderRadius: '5px',
-                            textTransform: 'capitalize',
-                          }}
-                        >
-                          {job.status}
-                        </Chip>
-                      </Box>
 
-                      <Box sx={{ my: 2 }}>
-                        <Typography level="h5" fontWeight="bold">
-                          {job.position}
-                        </Typography>
-                      </Box>
-                      <Box sx={{ my: 2 }}>
-                        <Chip
-                          variant="outlined"
-                          color="neutral"
-                          sx={{ borderRadius: '5px' }}
-                        >
-                          {job.jobType}
-                        </Chip>
-                      </Box>
+                        <Box sx={{ my: 2 }}>
+                          <Typography level="h5" fontWeight="bold">
+                            {job.position}
+                          </Typography>
+                        </Box>
+                        <Box sx={{ my: 2 }}>
+                          <Chip
+                            variant="outlined"
+                            color="neutral"
+                            sx={{ borderRadius: '5px' }}
+                          >
+                            {job.jobType}
+                          </Chip>
+                        </Box>
 
-                      <Box
-                        sx={{
-                          display: 'flex',
-                          justifyContent: 'space-between',
-                          gap: 2,
-                        }}
-                      >
                         <Box
                           sx={{
                             display: 'flex',
-                            alignItems: 'center',
+                            justifyContent: 'space-between',
                             gap: 2,
                           }}
                         >
+                          <Box
+                            sx={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: 2,
+                            }}
+                          >
+                            <Typography
+                              fontSize="sm"
+                              sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: 1,
+                              }}
+                            >
+                              <LocationOnIcon />
+                              {job.jobLocation}
+                            </Typography>
+                          </Box>
                           <Typography
                             fontSize="sm"
                             sx={{
@@ -413,23 +443,12 @@ function AllJobs() {
                               gap: 1,
                             }}
                           >
-                            <LocationOnIcon />
-                            {job.jobLocation}
+                            <AccessTimeIcon />
+                            {moment(job.createdAt).format('LL')}
                           </Typography>
                         </Box>
-                        <Typography
-                          fontSize="sm"
-                          sx={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: 1,
-                          }}
-                        >
-                          <AccessTimeIcon />
-                          {moment(job.createdAt).format('LL')}
-                        </Typography>
-                      </Box>
-                    </Sheet>
+                      </Sheet>
+                    </Link>
                   );
                 })
               ) : (

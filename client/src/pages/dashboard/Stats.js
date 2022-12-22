@@ -104,7 +104,7 @@ function Stats() {
               open={open}
               onClose={handleClose}
             >
-              <Link to="profile" style={{ textDecoration: 'none' }}>
+              <Link to="/dashboard/profile" style={{ textDecoration: 'none' }}>
                 <MenuItem>Profile</MenuItem>
               </Link>
               <MenuItem onClick={logoutUser}>Logout</MenuItem>

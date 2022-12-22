@@ -173,7 +173,7 @@ function AddJob() {
               open={open}
               onClose={handleClose}
             >
-              <Link style={{ textDecoration: 'none' }}>
+              <Link to="/dashboard/profile" style={{ textDecoration: 'none' }}>
                 <MenuItem>Profile</MenuItem>
               </Link>
               <MenuItem onClick={logoutUser}>Logout</MenuItem>

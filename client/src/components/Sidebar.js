@@ -45,7 +45,7 @@ function Sidebar() {
               </ListItemButton>
             </ListItem>
           </Link>
-          <Link to="all-jobs" style={{ textDecoration: 'none' }}>
+          <Link to="/dashboard/all-jobs" style={{ textDecoration: 'none' }}>
             <ListItem>
               <ListItemButton>
                 <ListItemDecorator sx={{ color: 'neutral.500' }}>
@@ -55,7 +55,7 @@ function Sidebar() {
               </ListItemButton>
             </ListItem>
           </Link>{' '}
-          <Link to="add-job" style={{ textDecoration: 'none' }}>
+          <Link to="/dashboard/add-job" style={{ textDecoration: 'none' }}>
             <ListItem>
               <ListItemButton>
                 <ListItemDecorator sx={{ color: 'neutral.500' }}>
