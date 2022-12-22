@@ -104,6 +104,12 @@ function AddJob() {
             height: '100vh',
             overflow: 'hidden',
           }),
+          gridTemplateColumns: {
+            xs: '1fr',
+            sm: 'minmax(64px, 200px) minmax(450px, 1fr)',
+            md: 'minmax(160px, 300px) minmax(300px, 1fr)',
+          },
+          gridTemplateRows: '64px 1fr',
         }}
       >
         <Layout.Header>
