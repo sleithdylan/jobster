@@ -44,6 +44,7 @@ function AddJob() {
     handleChange,
     clearValues,
     createJob,
+    editJob,
   } = useAppContext();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -85,6 +86,7 @@ function AddJob() {
     }
 
     if (isEditing) {
+      editJob();
       return;
     }
 
