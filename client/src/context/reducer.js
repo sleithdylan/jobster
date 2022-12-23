@@ -18,6 +18,7 @@ import {
   GET_JOBS_BEGIN,
   GET_JOBS_SUCCESS,
   SET_EDIT_JOB,
+  DELETE_JOB_BEGIN,
   LOGOUT_USER,
 } from './actions';
 
@@ -210,6 +211,13 @@ const reducer = (state, action) => {
       jobLocation,
       jobType,
       status,
+    };
+  }
+
+  if (action.type === DELETE_JOB_BEGIN) {
+    return {
+      ...state,
+      isLoading: true,
     };
   }
 
