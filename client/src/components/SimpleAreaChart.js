@@ -9,7 +9,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 
-import { Sheet, Typography } from '@mui/joy';
+import { Divider, Sheet, Typography } from '@mui/joy';
 
 function SimpleAreaChart({ data }) {
   return (
@@ -19,16 +19,17 @@ function SimpleAreaChart({ data }) {
         variant="outlined"
         sx={{
           borderRadius: 'sm',
-          p: 2,
+          py: 2,
           listStyle: 'none',
           gap: 1.5,
           mt: 2,
         }}
       >
-        <Typography level="h4" fontWeight="bold" sx={{ py: 2, pl: 4 }}>
+        <Typography level="h4" fontWeight="lg" sx={{ pt: 1, pb: 2, pl: 4 }}>
           Monthly Applications
         </Typography>
-        <ResponsiveContainer width="100%" height={575}>
+        <Divider sx={{ mb: 3 }} />
+        <ResponsiveContainer width="100%" height={565}>
           <AreaChart
             height={500}
             data={data}
