@@ -36,7 +36,9 @@ function StatsItem({ title, count, icon, backgroundColor }) {
             ml: '1rem',
           }}
         >
-          <Typography level="body1">{title}</Typography>
+          <Typography level="body1" textColor="neutral.500" fontWeight="lg">
+            {title}
+          </Typography>
           <Typography level="h2">{count}</Typography>
         </Box>
       </Box>
