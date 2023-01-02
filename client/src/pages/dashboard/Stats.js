@@ -10,6 +10,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 import Loader from '../../components/Loader';
 import StatsShell from '../../components/StatsShell';
+import ChartsShell from '../../components/ChartsShell';
 
 function Stats() {
   const { logoutUser, user, showStats, isLoading } = useAppContext();
@@ -123,7 +124,14 @@ function Stats() {
           <Sidebar />
         </Layout.SideNav>
         <Layout.Main style={{ backgroundColor: '#F7F7F8' }}>
-          {!isLoading ? <StatsShell /> : <Loader />}
+          {!isLoading ? (
+            <>
+              <StatsShell />
+              <ChartsShell />
+            </>
+          ) : (
+            <Loader />
+          )}
         </Layout.Main>
       </Layout.Root>
     </>
