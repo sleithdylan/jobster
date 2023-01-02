@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Layout from '../../components/Layout';
 import Sidebar from '../../components/Sidebar';
 import { useAppContext } from '../../context/appContext';
@@ -8,8 +8,11 @@ import { IconButton, Box, Typography, Avatar, Menu, MenuItem } from '@mui/joy';
 import MenuIcon from '@mui/icons-material/Menu';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
+import Loader from '../../components/Loader';
+import StatsShell from './StatsShell';
+
 function Stats() {
-  const { logoutUser, user } = useAppContext();
+  const { logoutUser, user, showStats, isLoading } = useAppContext();
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -21,6 +24,10 @@ function Stats() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  useEffect(() => {
+    showStats();
+  }, []);
 
   return (
     <>
@@ -38,7 +45,7 @@ function Stats() {
           gridTemplateColumns: {
             xs: '1fr',
             sm: 'minmax(64px, 200px) minmax(450px, 1fr)',
-            md: 'minmax(160px, 300px) minmax(300px, 500px) minmax(500px, 1fr)',
+            md: 'minmax(160px, 300px) minmax(300px, 1fr)',
           },
           gridTemplateRows: '64px 1fr',
         }}
@@ -114,6 +121,9 @@ function Stats() {
         <Layout.SideNav>
           <Sidebar />
         </Layout.SideNav>
+        <Layout.Main style={{ backgroundColor: '#F7F7F8' }}>
+          {!isLoading ? <StatsShell /> : <Loader />}
+        </Layout.Main>
       </Layout.Root>
     </>
   );
