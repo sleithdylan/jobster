@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Box, Typography, Sheet } from '@mui/joy';
-import { Grid } from '@mui/material';
 
 function StatsItem({ title, count, icon, backgroundColor }) {
   return (

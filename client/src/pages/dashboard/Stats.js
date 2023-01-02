@@ -9,7 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 import Loader from '../../components/Loader';
-import StatsShell from './StatsShell';
+import StatsShell from '../../components/StatsShell';
 
 function Stats() {
   const { logoutUser, user, showStats, isLoading } = useAppContext();
@@ -27,6 +27,7 @@ function Stats() {
 
   useEffect(() => {
     showStats();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

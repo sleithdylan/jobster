@@ -1,5 +1,6 @@
 import React from 'react';
-import { useAppContext } from '../../context/appContext';
+import { useAppContext } from '../context/appContext';
+
 import StatsItem from './StatsItem';
 import WorkIcon from '@mui/icons-material/Work';
 import NoteAltIcon from '@mui/icons-material/NoteAlt';
@@ -11,14 +12,14 @@ function StatsShell() {
 
   const defaultStats = [
     {
-      title: 'pending applications',
+      title: 'Pending Applications',
       count: stats.pending || 0,
       icon: <WorkIcon sx={{ width: '3rem', height: '3rem', color: 'white' }} />,
 
       backgroundColor: '#096bde',
     },
     {
-      title: 'interviews scheduled',
+      title: 'Interviews Scheduled',
       count: stats.interview || 0,
       icon: (
         <NoteAltIcon sx={{ width: '3rem', height: '3rem', color: 'white' }} />
@@ -27,7 +28,7 @@ function StatsShell() {
       backgroundColor: '#096bde',
     },
     {
-      title: 'declined applications',
+      title: 'Declined Applications',
       count: stats.declined || 0,
       icon: (
         <ThumbDownAltIcon
