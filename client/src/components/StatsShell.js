@@ -41,8 +41,8 @@ function StatsShell() {
     <Grid container columns={12} spacing={2}>
       {defaultStats.map((item, index) => {
         return (
-          <Grid item xs={12} md={12} lg={4}>
-            <StatsItem key={index} {...item} />
+          <Grid item key={index} xs={12} md={12} lg={4}>
+            <StatsItem {...item} />
           </Grid>
         );
       })}
