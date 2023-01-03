@@ -35,4 +35,6 @@ export const EDIT_JOB_ERROR = 'EDIT_JOB_ERROR';
 export const SHOW_STATS_BEGIN = 'SHOW_STATS_BEGIN';
 export const SHOW_STATS_SUCCESS = 'SHOW_STATS_SUCCESS';
 
+export const CLEAR_FILTERS = 'CLEAR_FILTERS';
+
 export const LOGOUT_USER = 'LOGOUT_USER';

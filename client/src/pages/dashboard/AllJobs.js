@@ -36,10 +36,15 @@ function AllJobs() {
     getJobs,
     jobs,
     isLoading,
-    page,
     totalJobs,
     setEditJob,
     deleteJob,
+    search,
+    searchStatus,
+    searchType,
+    sort,
+    clearFilters,
+    handleChange,
   } = useAppContext();
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -47,7 +52,8 @@ function AllJobs() {
 
   useEffect(() => {
     getJobs();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [search, searchStatus, searchType, sort]);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -55,6 +61,31 @@ function AllJobs() {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleSearch = (e) => {
+    if (isLoading) return;
+    handleChange({ name: e.target.name, value: e.target.value });
+  };
+
+  const handleSearchStatus = (e) => {
+    if (isLoading) return;
+    handleChange({ name: 'searchStatus', value: e.target.innerText });
+  };
+
+  const handleSearchType = (e) => {
+    if (isLoading) return;
+    handleChange({ name: 'searchType', value: e.target.innerText });
+  };
+
+  const handleSort = (e) => {
+    if (isLoading) return;
+    handleChange({ name: 'sort', value: e.target.innerText });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    clearFilters();
   };
 
   return (
@@ -168,7 +199,13 @@ function AllJobs() {
             >
               Filter by
             </Typography>
-            <Button size="sm" variant="plain" sx={{ fontSize: 'xs', px: 1 }}>
+            <Button
+              size="sm"
+              variant="plain"
+              sx={{ fontSize: 'xs', px: 1 }}
+              disabled={isLoading}
+              onClick={handleSubmit}
+            >
               Clear filters
             </Button>
           </Box>
@@ -197,7 +234,9 @@ function AllJobs() {
               <TextField
                 placeholder="e.g. Yahoo"
                 variant="outlined"
-                name="jobLocation"
+                name="search"
+                value={search}
+                onChange={handleSearch}
               />
             </Box>
           </Box>
@@ -226,6 +265,9 @@ function AllJobs() {
             <Box sx={{ pt: '1rem' }}>
               <Select
                 placeholder="Select a status"
+                name="searchStatus"
+                value={searchStatus}
+                onChange={handleSearchStatus}
                 indicator={<KeyboardArrowDown />}
                 sx={{
                   [`& .${selectClasses.indicator}`]: {
@@ -236,8 +278,10 @@ function AllJobs() {
                   },
                 }}
               >
-                <Option value="pending">Pending</Option>
-                <Option value="interview">Interview</Option>
+                <Option value="all">all</Option>
+                <Option value="pending">pending</Option>
+                <Option value="interview">interview</Option>
+                <Option value="declined">declined</Option>
               </Select>
             </Box>
           </Box>
@@ -266,6 +310,9 @@ function AllJobs() {
             <Box sx={{ pt: '1rem' }}>
               <Select
                 placeholder="Select a job type"
+                name="searchType"
+                value={searchType}
+                onChange={handleSearchType}
                 indicator={<KeyboardArrowDown />}
                 sx={{
                   [`& .${selectClasses.indicator}`]: {
@@ -276,8 +323,11 @@ function AllJobs() {
                   },
                 }}
               >
-                <Option value="full-time">Full-time</Option>
-                <Option value="part-time">Part-time</Option>
+                <Option value="all">all</Option>
+                <Option value="full-time">full-time</Option>
+                <Option value="part-time">part-time</Option>
+                <Option value="remote">remote</Option>
+                <Option value="internship">internship</Option>
               </Select>
             </Box>
           </Box>
@@ -306,6 +356,9 @@ function AllJobs() {
             <Box sx={{ pt: '1rem' }}>
               <Select
                 placeholder="Sort by"
+                name="sort"
+                value={sort}
+                onChange={handleSort}
                 indicator={<KeyboardArrowDown />}
                 sx={{
                   [`& .${selectClasses.indicator}`]: {
@@ -316,8 +369,8 @@ function AllJobs() {
                   },
                 }}
               >
-                <Option value="latest">Latest</Option>
-                <Option value="oldest">Oldest</Option>
+                <Option value="latest">latest</Option>
+                <Option value="oldest">oldest</Option>
               </Select>
             </Box>
           </Box>

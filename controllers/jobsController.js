@@ -27,11 +27,11 @@ const getAllJobs = async (req, res) => {
   };
 
   // Query parameters - filtering
-  if (status !== 'all') {
+  if (status && status !== 'all') {
     queryObject.status = status;
   }
 
-  if (status !== 'all') {
+  if (jobType && jobType !== 'all') {
     queryObject.jobType = jobType;
   }
 
