@@ -415,7 +415,9 @@ function AllJobs() {
                             gap: 2,
                           }}
                         >
-                          <Avatar src="https://app.outboundsales.io/api/logo/yahoo.com" />
+                          <Avatar
+                            src={`https://app.outboundsales.io/api/logo/${job.company.toLowerCase()}.com`}
+                          />
                           <Typography>{job.company}</Typography>
                         </Box>
                         <Chip
