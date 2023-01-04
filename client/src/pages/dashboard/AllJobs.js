@@ -28,6 +28,7 @@ import Loader from '../../components/Loader';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import moment from 'moment';
+import { Pagination } from '@mui/material';
 
 function AllJobs() {
   const {
@@ -45,6 +46,9 @@ function AllJobs() {
     sort,
     clearFilters,
     handleChange,
+    numOfPages,
+    page,
+    changePage,
   } = useAppContext();
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -53,7 +57,7 @@ function AllJobs() {
   useEffect(() => {
     getJobs();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [search, searchStatus, searchType, sort]);
+  }, [page, search, searchStatus, searchType, sort]);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -380,96 +384,109 @@ function AllJobs() {
             {totalJobs} job{jobs.length > 1 && 's'} found
           </Typography>
           {!isLoading ? (
-            <List
-              sx={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-                gap: 2,
-              }}
-            >
-              {jobs.length !== 0 ? (
-                jobs.map((job) => {
-                  return (
-                    <Sheet
-                      key={job._id}
-                      {...job}
-                      component="li"
-                      variant="outlined"
-                      sx={{
-                        borderRadius: 'sm',
-                        p: 2,
-                        listStyle: 'none',
-                      }}
-                    >
-                      <Box
+            <>
+              <List
+                sx={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+                  gap: 2,
+                }}
+              >
+                {jobs.length !== 0 ? (
+                  jobs.map((job) => {
+                    return (
+                      <Sheet
+                        key={job._id}
+                        {...job}
+                        component="li"
+                        variant="outlined"
                         sx={{
-                          display: 'flex',
-                          justifyContent: 'space-between',
-                          gap: 2,
+                          borderRadius: 'sm',
+                          p: 2,
+                          listStyle: 'none',
                         }}
                       >
                         <Box
                           sx={{
                             display: 'flex',
-                            alignItems: 'center',
+                            justifyContent: 'space-between',
                             gap: 2,
                           }}
                         >
-                          <Avatar
-                            src={`https://app.outboundsales.io/api/logo/${job.company.toLowerCase()}.com`}
-                          />
-                          <Typography>{job.company}</Typography>
+                          <Box
+                            sx={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: 2,
+                            }}
+                          >
+                            <Avatar
+                              src={`https://app.outboundsales.io/api/logo/${job.company.toLowerCase()}.com`}
+                            />
+                            <Typography>{job.company}</Typography>
+                          </Box>
+                          <Chip
+                            variant="soft"
+                            color={
+                              job.status === 'declined'
+                                ? 'danger'
+                                : job.status === 'interview'
+                                ? 'primary'
+                                : job.status === 'pending'
+                                ? 'warning'
+                                : null
+                            }
+                            sx={{
+                              borderRadius: '5px',
+                              textTransform: 'capitalize',
+                            }}
+                          >
+                            {job.status}
+                          </Chip>
                         </Box>
-                        <Chip
-                          variant="soft"
-                          color={
-                            job.status === 'declined'
-                              ? 'danger'
-                              : job.status === 'interview'
-                              ? 'primary'
-                              : job.status === 'pending'
-                              ? 'warning'
-                              : null
-                          }
-                          sx={{
-                            borderRadius: '5px',
-                            textTransform: 'capitalize',
-                          }}
-                        >
-                          {job.status}
-                        </Chip>
-                      </Box>
 
-                      <Box sx={{ my: 2 }}>
-                        <Typography level="h5" fontWeight="bold">
-                          {job.position}
-                        </Typography>
-                      </Box>
-                      <Box sx={{ my: 2 }}>
-                        <Chip
-                          variant="outlined"
-                          color="neutral"
-                          size="sm"
-                          sx={{ borderRadius: '5px', mb: 1 }}
-                        >
-                          {job.jobType}
-                        </Chip>
-                      </Box>
+                        <Box sx={{ my: 2 }}>
+                          <Typography level="h5" fontWeight="bold">
+                            {job.position}
+                          </Typography>
+                        </Box>
+                        <Box sx={{ my: 2 }}>
+                          <Chip
+                            variant="outlined"
+                            color="neutral"
+                            size="sm"
+                            sx={{ borderRadius: '5px', mb: 1 }}
+                          >
+                            {job.jobType}
+                          </Chip>
+                        </Box>
 
-                      <Box
-                        sx={{
-                          display: 'flex',
-                          justifyContent: 'space-between',
-                          gap: 2,
-                        }}
-                      >
                         <Box
                           sx={{
                             display: 'flex',
-                            alignItems: 'center',
+                            justifyContent: 'space-between',
                             gap: 2,
                           }}
                         >
+                          <Box
+                            sx={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: 2,
+                            }}
+                          >
+                            <Typography
+                              fontSize="sm"
+                              sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: 1,
+                              }}
+                            >
+                              <LocationOnIcon />
+                              {job.jobLocation}
+                            </Typography>
+                          </Box>
                           <Typography
                             fontSize="sm"
                             sx={{
@@ -478,54 +495,56 @@ function AllJobs() {
                               gap: 1,
                             }}
                           >
-                            <LocationOnIcon />
-                            {job.jobLocation}
+                            <AccessTimeIcon />
+                            {moment(job.createdAt).format('LL')}
                           </Typography>
                         </Box>
-                        <Typography
-                          fontSize="sm"
-                          sx={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: 1,
-                          }}
-                        >
-                          <AccessTimeIcon />
-                          {moment(job.createdAt).format('LL')}
-                        </Typography>
-                      </Box>
-                      <Divider sx={{ my: 2 }} />
-                      <Box>
-                        <Link
-                          to={`/dashboard/add-job`}
-                          onClick={() => setEditJob(job._id)}
-                          style={{ textDecoration: 'none' }}
-                        >
-                          <Button color="primary" variant="solid" fullWidth>
-                            Edit
-                          </Button>{' '}
-                        </Link>
-                        <Box
-                          sx={{
-                            my: 2,
-                          }}
-                        ></Box>
-                        <Button
-                          color="danger"
-                          variant="outlined"
-                          onClick={() => deleteJob(job._id)}
-                          fullWidth
-                        >
-                          Remove
-                        </Button>
-                      </Box>
-                    </Sheet>
-                  );
-                })
-              ) : (
-                <Typography level="h5">No jobs found...</Typography>
-              )}
-            </List>
+                        <Divider sx={{ my: 2 }} />
+                        <Box>
+                          <Link
+                            to={`/dashboard/add-job`}
+                            onClick={() => setEditJob(job._id)}
+                            style={{ textDecoration: 'none' }}
+                          >
+                            <Button color="primary" variant="solid" fullWidth>
+                              Edit
+                            </Button>{' '}
+                          </Link>
+                          <Box
+                            sx={{
+                              my: 2,
+                            }}
+                          ></Box>
+                          <Button
+                            color="danger"
+                            variant="outlined"
+                            onClick={() => deleteJob(job._id)}
+                            fullWidth
+                          >
+                            Remove
+                          </Button>
+                        </Box>
+                      </Sheet>
+                    );
+                  })
+                ) : (
+                  <Typography level="h5">No jobs found...</Typography>
+                )}
+              </List>
+              <Box
+                sx={{ display: 'flex', mt: 3, mb: 2, justifyContent: 'center' }}
+              >
+                {numOfPages > 1 && (
+                  <Pagination
+                    onChange={(e, value) => changePage(value)}
+                    variant="outlined"
+                    shape="rounded"
+                    page={page}
+                    count={numOfPages}
+                  />
+                )}
+              </Box>
+            </>
           ) : (
             <Loader />
           )}

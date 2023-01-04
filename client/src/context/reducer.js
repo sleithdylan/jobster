@@ -25,6 +25,7 @@ import {
   SHOW_STATS_BEGIN,
   SHOW_STATS_SUCCESS,
   CLEAR_FILTERS,
+  CHANGE_PAGE,
   LOGOUT_USER,
 } from './actions';
 
@@ -288,6 +289,13 @@ const reducer = (state, action) => {
       searchStatus: '',
       searchType: '',
       sort: 'latest',
+    };
+  }
+
+  if (action.type === CHANGE_PAGE) {
+    return {
+      ...state,
+      page: action.payload.page,
     };
   }
 
