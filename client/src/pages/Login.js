@@ -9,8 +9,8 @@ import {
   Typography,
   Button,
   TextField,
-  Checkbox,
   Sheet,
+  Divider,
 } from '@mui/joy';
 import { Box, Grid } from '@mui/material';
 
@@ -144,25 +144,52 @@ function Login() {
                 variant="outlined"
                 onChange={handleChange}
                 value={values.password}
-              />
-              <Checkbox
-                size="sm"
-                label="Remember me"
                 sx={{
                   margin: '1.5rem 0',
                 }}
               />
               {values.isMember ? (
-                <Button
-                  type="submit"
-                  variant="solid"
-                  fullWidth
-                  sx={{
-                    marginBottom: '1.5rem',
-                  }}
-                >
-                  Sign in
-                </Button>
+                <>
+                  <Button
+                    type="submit"
+                    variant="solid"
+                    fullWidth
+                    sx={{
+                      marginBottom: '1.5rem',
+                    }}
+                  >
+                    Sign in
+                  </Button>
+                  <Divider>
+                    <Typography variant="h2">Or continue as</Typography>
+                  </Divider>
+                  <Button
+                    type="submit"
+                    onClick={() =>
+                      loginUser({
+                        email: 'demo@jobster.com',
+                        password: '*$aN5f8LQ!rM',
+                      })
+                    }
+                    variant="outlined"
+                    color="neutral"
+                    sx={{
+                      margin: '1.5rem 0',
+                      backgroundColor: '#F7F7F8',
+                      '&:hover': {
+                        backgroundColor: '#efefef',
+                        borderColor: '#d8d8df',
+                      },
+                      '&:active': {
+                        backgroundColor: '#e5e5e5',
+                        borderColor: '#d8d8df',
+                      },
+                    }}
+                    fullWidth
+                  >
+                    Demo User
+                  </Button>
+                </>
               ) : (
                 <Button
                   type="submit"
