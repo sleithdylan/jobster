@@ -115,7 +115,7 @@ function Login() {
                   type="text"
                   label="Your name"
                   name="name"
-                  placeholder="e.g. Bonnie Green"
+                  placeholder="e.g. Bonnie"
                   variant="outlined"
                   onChange={handleChange}
                   value={values.name}

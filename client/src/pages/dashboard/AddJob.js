@@ -161,7 +161,6 @@ function AddJob() {
               }}
               onClick={handleClick}
             >
-              <Avatar alt="Remy Sharp" size="md" />
               <Typography
                 sx={{ marginLeft: '0.75rem', marginRight: '0.25rem' }}
               >

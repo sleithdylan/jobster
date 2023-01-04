@@ -162,7 +162,6 @@ function AllJobs() {
               }}
               onClick={handleClick}
             >
-              <Avatar alt="Remy Sharp" size="md" />
               <Typography
                 sx={{ marginLeft: '0.75rem', marginRight: '0.25rem' }}
               >
@@ -215,7 +214,6 @@ function AllJobs() {
               Clear filters
             </Button>
           </Box>
-
           <Box sx={{ p: 2 }}>
             <Box
               sx={{
@@ -238,7 +236,7 @@ function AllJobs() {
             </Box>
             <Box sx={{ pt: '1rem' }}>
               <TextField
-                placeholder="e.g. Yahoo"
+                placeholder="e.g. Engineer"
                 variant="outlined"
                 name="search"
                 value={search}
