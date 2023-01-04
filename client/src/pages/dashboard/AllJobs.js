@@ -380,9 +380,7 @@ function AllJobs() {
           </Box>
         </Layout.SidePane>
         <Layout.Main style={{ backgroundColor: '#F7F7F8' }}>
-          <Typography level="h5">
-            {totalJobs} job{jobs.length > 1 && 's'} found
-          </Typography>
+          <Typography level="h5">{totalJobs} jobs found</Typography>
           {showAlert && (
             <Box sx={{ my: 2 }}>
               <Alert />

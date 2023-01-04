@@ -174,23 +174,21 @@ function Login() {
                   Create an account
                 </Button>
               )}
-            </form>
-            {values.isMember ? (
-              <Typography level="body2">
-                Don’t have an account yet?{' '}
-                <Link onClick={toggleMember} fontWeight="lg">
-                  Sign up
-                </Link>
-              </Typography>
-            ) : (
-              <Typography level="body2">
-                Already have an account?{' '}
-                <Link onClick={toggleMember} fontWeight="lg">
-                  Login here
-                </Link>
-              </Typography>
-            )}
-            <form onSubmit={onSubmit}>
+              {values.isMember ? (
+                <Typography level="body2">
+                  Don’t have an account yet?{' '}
+                  <Link onClick={toggleMember} fontWeight="lg">
+                    Sign up
+                  </Link>
+                </Typography>
+              ) : (
+                <Typography level="body2">
+                  Already have an account?{' '}
+                  <Link onClick={toggleMember} fontWeight="lg">
+                    Login here
+                  </Link>
+                </Typography>
+              )}
               {values.isMember ? (
                 <>
                   <Divider sx={{ mt: 2 }}>
