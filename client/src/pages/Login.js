@@ -160,35 +160,6 @@ function Login() {
                   >
                     Sign in
                   </Button>
-                  <Divider>
-                    <Typography variant="h2">Or continue as</Typography>
-                  </Divider>
-                  <Button
-                    type="submit"
-                    onClick={() =>
-                      loginUser({
-                        email: 'demo@jobster.com',
-                        password: '*$aN5f8LQ!rM',
-                      })
-                    }
-                    variant="outlined"
-                    color="neutral"
-                    sx={{
-                      margin: '1.5rem 0',
-                      backgroundColor: '#F7F7F8',
-                      '&:hover': {
-                        backgroundColor: '#efefef',
-                        borderColor: '#d8d8df',
-                      },
-                      '&:active': {
-                        backgroundColor: '#e5e5e5',
-                        borderColor: '#d8d8df',
-                      },
-                    }}
-                    fullWidth
-                  >
-                    Demo User
-                  </Button>
                 </>
               ) : (
                 <Button
@@ -219,6 +190,41 @@ function Login() {
                 </Link>
               </Typography>
             )}
+            <form onSubmit={onSubmit}>
+              {values.isMember ? (
+                <>
+                  <Divider sx={{ mt: 2 }}>
+                    <Typography variant="h2">Or continue as</Typography>
+                  </Divider>
+                  <Button
+                    type="submit"
+                    onClick={() =>
+                      loginUser({
+                        email: 'demo@jobster.com',
+                        password: '*$aN5f8LQ!rM',
+                      })
+                    }
+                    variant="outlined"
+                    color="neutral"
+                    sx={{
+                      margin: '1.5rem 0',
+                      backgroundColor: '#F7F7F8',
+                      '&:hover': {
+                        backgroundColor: '#efefef',
+                        borderColor: '#d8d8df',
+                      },
+                      '&:active': {
+                        backgroundColor: '#e5e5e5',
+                        borderColor: '#d8d8df',
+                      },
+                    }}
+                    fullWidth
+                  >
+                    Demo User
+                  </Button>
+                </>
+              ) : null}
+            </form>
           </Grid>
         </Sheet>
       </Grid>
