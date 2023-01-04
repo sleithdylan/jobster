@@ -3,6 +3,7 @@ import Layout from '../../components/Layout';
 import Sidebar from '../../components/Sidebar';
 import { useAppContext } from '../../context/appContext';
 import { Link } from 'react-router-dom';
+import Alert from '../../components/Alert';
 
 import {
   IconButton,
@@ -49,6 +50,7 @@ function AllJobs() {
     numOfPages,
     page,
     changePage,
+    showAlert,
   } = useAppContext();
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -383,6 +385,11 @@ function AllJobs() {
           <Typography level="h5">
             {totalJobs} job{jobs.length > 1 && 's'} found
           </Typography>
+          {showAlert && (
+            <Box sx={{ my: 2 }}>
+              <Alert />
+            </Box>
+          )}
           {!isLoading ? (
             <>
               <List
