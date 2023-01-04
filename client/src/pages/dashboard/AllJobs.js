@@ -3,7 +3,6 @@ import Layout from '../../components/Layout';
 import Sidebar from '../../components/Sidebar';
 import { useAppContext } from '../../context/appContext';
 import { Link } from 'react-router-dom';
-import Alert from '../../components/Alert';
 
 import {
   IconButton,
@@ -30,6 +29,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import moment from 'moment';
 import { Pagination } from '@mui/material';
+import Notification from '../../components/Notification';
 
 function AllJobs() {
   const {
@@ -383,7 +383,7 @@ function AllJobs() {
           <Typography level="h5">{totalJobs} jobs found</Typography>
           {showAlert && (
             <Box sx={{ my: 2 }}>
-              <Alert />
+              <Notification />
             </Box>
           )}
           {!isLoading ? (

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Notification from '../components/Alert';
+import Notification from '../components/Notification';
 import { useAppContext } from '../context/appContext';
 import { useNavigate } from 'react-router-dom';
 

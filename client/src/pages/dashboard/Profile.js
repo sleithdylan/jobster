@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import Sidebar from '../../components/Sidebar';
 import Layout from '../../components/Layout';
 import { useAppContext } from '../../context/appContext';
-import Alert from '../../components/Alert';
 import { Link, useNavigate } from 'react-router-dom';
 
 import {
   IconButton,
   Box,
   Typography,
-  Avatar,
   Menu,
   MenuItem,
   Sheet,
@@ -20,6 +18,7 @@ import {
 import { Grid } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import MenuIcon from '@mui/icons-material/Menu';
+import Notification from '../../components/Notification';
 
 function Profile() {
   const { logoutUser, user, displayAlert, showAlert, updateUser, isLoading } =
@@ -147,7 +146,7 @@ function Profile() {
           <form action="post" onSubmit={handleSubmit}>
             {showAlert && (
               <Box sx={{ mb: 2 }}>
-                <Alert />
+                <Notification />
               </Box>
             )}
             <Sheet

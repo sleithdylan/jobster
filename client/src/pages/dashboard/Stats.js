@@ -4,7 +4,7 @@ import Sidebar from '../../components/Sidebar';
 import { useAppContext } from '../../context/appContext';
 import { Link } from 'react-router-dom';
 
-import { IconButton, Box, Typography, Avatar, Menu, MenuItem } from '@mui/joy';
+import { IconButton, Box, Typography, Menu, MenuItem } from '@mui/joy';
 import MenuIcon from '@mui/icons-material/Menu';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
@@ -99,7 +99,6 @@ function Stats() {
               }}
               onClick={handleClick}
             >
-              <Avatar alt="Remy Sharp" size="md" />
               <Typography
                 sx={{ marginLeft: '0.75rem', marginRight: '0.25rem' }}
               >

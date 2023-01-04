@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import Sidebar from '../../components/Sidebar';
 import Layout from '../../components/Layout';
 import { useAppContext } from '../../context/appContext';
-import Alert from '../../components/Alert';
 import { Link } from 'react-router-dom';
 
 import {
   IconButton,
   Box,
   Typography,
-  Avatar,
   Menu,
   MenuItem,
   Sheet,
@@ -25,6 +23,7 @@ import { Grid } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import MenuIcon from '@mui/icons-material/Menu';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
+import Notification from '../../components/Notification';
 
 function AddJob() {
   const {
@@ -188,7 +187,7 @@ function AddJob() {
           <form action="post" onSubmit={handleSubmit}>
             {showAlert && (
               <Box sx={{ mb: 2 }}>
-                <Alert />
+                <Notification />
               </Box>
             )}
             <Sheet
