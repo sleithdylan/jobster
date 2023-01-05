@@ -549,7 +549,15 @@ function AllJobs() {
               </Box>
             </>
           ) : (
-            <Loader />
+            <Box
+              sx={{
+                left: '70vw',
+                top: '50vh',
+                position: 'absolute',
+              }}
+            >
+              <Loader />
+            </Box>
           )}
         </Layout.Main>
       </Layout.Root>

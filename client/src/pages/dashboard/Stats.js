@@ -129,7 +129,15 @@ function Stats() {
               <ChartsShell />
             </>
           ) : (
-            <Loader />
+            <Box
+              sx={{
+                left: '56.5vw',
+                top: '50vh',
+                position: 'absolute',
+              }}
+            >
+              <Loader />
+            </Box>
           )}
         </Layout.Main>
       </Layout.Root>

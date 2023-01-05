@@ -38,7 +38,7 @@ function Sidebar() {
           <Link to="/dashboard/stats" style={{ textDecoration: 'none' }}>
             <ListItem>
               <ListItemButton>
-                <ListItemDecorator sx={{ color: 'inherit' }}>
+                <ListItemDecorator sx={{ color: 'neutral.500' }}>
                   <AnalyticsIcon fontSize="small" />
                 </ListItemDecorator>
                 <ListItemContent>Stats</ListItemContent>
