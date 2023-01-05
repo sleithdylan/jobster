@@ -81,6 +81,7 @@ const joyTheme = extendJoyTheme({
           solidBg: '#6366f1',
           solidHoverBg: '#4f46e5',
           solidActiveBg: '#4338ca',
+          solidDisabledBg: '#818cf8',
         },
       },
     },
