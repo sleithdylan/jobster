@@ -167,11 +167,12 @@ function Login() {
                     type="submit"
                     variant="solid"
                     fullWidth
+                    disabled={isLoading}
                     sx={{
                       marginBottom: '1.5rem',
                     }}
                   >
-                    Sign in
+                    {isLoading ? 'Please wait...' : 'Sign in'}
                   </Button>
                 </>
               ) : (
@@ -184,7 +185,7 @@ function Login() {
                     marginBottom: '1.5rem',
                   }}
                 >
-                  Create an account
+                  {isLoading ? 'Please wait...' : 'Create an account'}
                 </Button>
               )}
               {values.isMember ? (
