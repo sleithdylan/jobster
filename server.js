@@ -39,7 +39,14 @@ app.use(express.static(path.resolve(__dirname, './client/build')));
 
 // Make json data available in controllers
 app.use(express.json());
-app.use(helmet());
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      'img-src': ["'self'", 'https: data:'],
+    },
+  })
+);
 app.use(xss());
 app.use(mongoSanitize());
 
