@@ -56,6 +56,19 @@ function Login() {
     }
   };
 
+  const onSubmitDemoUser = (e) => {
+    e.preventDefault();
+
+    const { isMember } = values;
+
+    if (isMember) {
+      loginUser({
+        email: 'demo@jobster.com',
+        password: '*$aN5f8LQ!rM',
+      });
+    }
+  };
+
   useEffect(() => {
     if (user) {
       setTimeout(() => {
@@ -189,6 +202,8 @@ function Login() {
                   </Link>
                 </Typography>
               )}
+            </form>
+            <form onSubmit={onSubmitDemoUser}>
               {values.isMember ? (
                 <>
                   <Divider sx={{ mt: 2 }}>
