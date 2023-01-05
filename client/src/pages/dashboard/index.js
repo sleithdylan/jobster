@@ -1,8 +1,7 @@
 import AddJob from './AddJob';
 import AllJobs from './AllJobs';
 import Profile from './Profile';
-import SharedLayout from './SharedLayout';
 import Stats from './Stats';
 import ProtectedRoute from '../ProtectedRoute';
 
-export { AddJob, AllJobs, Profile, Stats, SharedLayout, ProtectedRoute };
+export { AddJob, AllJobs, Profile, Stats, ProtectedRoute };

@@ -7,7 +7,6 @@ import {
   AllJobs,
   Profile,
   Stats,
-  SharedLayout,
   ProtectedRoute,
 } from './pages/dashboard/index';
 
@@ -16,18 +15,37 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route
-          path="/dashboard"
+          path="/dashboard/stats"
           element={
             <ProtectedRoute>
-              <SharedLayout />
+              <Stats />
             </ProtectedRoute>
           }
-        >
-          <Route path="stats" element={<Stats />} />
-          <Route path="all-jobs" element={<AllJobs />} />
-          <Route path="add-job" element={<AddJob />} />
-          <Route path="profile" element={<Profile />} />
-        </Route>
+        />
+        <Route
+          path="/dashboard/all-jobs"
+          element={
+            <ProtectedRoute>
+              <AllJobs />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/dashboard/add-job"
+          element={
+            <ProtectedRoute>
+              <AddJob />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/dashboard/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/" element={<Login />} />
         <Route path="*" element={<Error />} />
       </Routes>
