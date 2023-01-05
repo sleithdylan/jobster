@@ -129,7 +129,6 @@ function SideDrawer({ onClose, ...props }) {
           width: 'max-content',
           height: '100%',
           p: 2,
-          boxShadow: 'lg',
           bgcolor: 'background.surface',
         }}
       >

@@ -123,7 +123,7 @@ function AddJob() {
             }}
           >
             <IconButton
-              variant="outlined"
+              variant="plain"
               size="sm"
               onClick={() => setDrawerOpen(true)}
               sx={{ display: { sm: 'none' } }}
@@ -136,7 +136,7 @@ function AddJob() {
                 paddingBottom: '1.5rem',
               }}
             >
-              <img src="/jobster-logo.svg" width={125} height={50} alt="" />
+              <img src="/jobster-logo.svg" width={125} height={20} alt="" />
             </Link>
           </Box>
           <Box

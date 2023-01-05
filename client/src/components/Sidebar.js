@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 
 import {
-  IconButton,
   List,
   ListItem,
   ListItemButton,
@@ -9,7 +8,6 @@ import {
   ListItemDecorator,
   ListSubheader,
 } from '@mui/joy';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import AnalyticsIcon from '@mui/icons-material/Analytics';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
@@ -18,17 +16,7 @@ function Sidebar() {
   return (
     <List size="sm" sx={{ '--List-item-radius': '8px', '--List-gap': '4px' }}>
       <ListItem nested>
-        <ListSubheader>
-          Browse
-          <IconButton
-            size="sm"
-            variant="plain"
-            color="primary"
-            sx={{ '--IconButton-size': '24px', ml: 'auto' }}
-          >
-            <KeyboardArrowDownIcon fontSize="small" color="primary" />
-          </IconButton>
-        </ListSubheader>
+        <ListSubheader>Browse</ListSubheader>
         <List
           aria-labelledby="nav-list-browse"
           sx={{

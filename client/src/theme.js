@@ -74,25 +74,13 @@ const joyTheme = extendJoyTheme({
         background: {
           body: 'var(--joy-palette-neutral-50)',
         },
-        // primary: {
-        //   50: '##eef2ff',
-        //   100: '##e0e7ff',
-        //   200: '##c7d2fe',
-        //   300: '#a5b4fc',
-        //   400: '#818cf8',
-        //   500: '#6366f1',
-        //   600: '#4f46e5',
-        //   700: '#4338ca',
-        //   800: '#3730a3',
-        //   900: '#312e81',
-        // },
-      },
-    },
-    dark: {
-      palette: {
-        background: {
-          body: 'var(--joy-palette-common-black)',
-          surface: 'var(--joy-palette-neutral-900)',
+        primary: {
+          plainColor: '#6366f1',
+          plainHoverBg: '#eef2ff',
+          plainActiveBg: '#e0e7ff',
+          solidBg: '#6366f1',
+          solidHoverBg: '#4f46e5',
+          solidActiveBg: '#4338ca',
         },
       },
     },

@@ -47,8 +47,8 @@ function SimpleAreaChart({ data }) {
             <Area
               type="monotone"
               dataKey="count"
-              stroke="#096bde"
-              fill="#096bde"
+              stroke="#6366f1"
+              fill="#6366f1"
             />
           </AreaChart>
         </ResponsiveContainer>

@@ -15,7 +15,7 @@ function StatsShell() {
       title: 'Pending Applications',
       count: stats.pending || 0,
       icon: <WorkIcon sx={{ width: '3rem', height: '3rem', color: 'white' }} />,
-      backgroundColor: '#096bde',
+      backgroundColor: '#6366f1',
     },
     {
       title: 'Interviews Scheduled',
@@ -23,7 +23,7 @@ function StatsShell() {
       icon: (
         <NoteAltIcon sx={{ width: '3rem', height: '3rem', color: 'white' }} />
       ),
-      backgroundColor: '#096bde',
+      backgroundColor: '#6366f1',
     },
     {
       title: 'Declined Applications',
@@ -33,7 +33,7 @@ function StatsShell() {
           sx={{ width: '3rem', height: '3rem', color: 'white' }}
         />
       ),
-      backgroundColor: '#096bde',
+      backgroundColor: '#6366f1',
     },
   ];
 

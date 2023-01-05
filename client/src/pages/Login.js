@@ -190,14 +190,22 @@ function Login() {
               {values.isMember ? (
                 <Typography level="body2">
                   Don’t have an account yet?{' '}
-                  <Link onClick={toggleMember} fontWeight="lg">
+                  <Link
+                    onClick={toggleMember}
+                    fontWeight="lg"
+                    sx={{ color: '#6366f1' }}
+                  >
                     Sign up
                   </Link>
                 </Typography>
               ) : (
                 <Typography level="body2">
                   Already have an account?{' '}
-                  <Link onClick={toggleMember} fontWeight="lg">
+                  <Link
+                    onClick={toggleMember}
+                    fontWeight="lg"
+                    sx={{ color: '#6366f1' }}
+                  >
                     Login here
                   </Link>
                 </Typography>

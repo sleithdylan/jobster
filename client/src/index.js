@@ -12,7 +12,7 @@ root.render(
   <React.StrictMode>
     <AppProvider>
       <StyledEngineProvider injectFirst>
-        <CssVarsProvider theme={theme}>
+        <CssVarsProvider defaultMode="light" theme={theme}>
           <App />
         </CssVarsProvider>
       </StyledEngineProvider>

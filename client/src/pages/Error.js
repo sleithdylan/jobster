@@ -22,9 +22,9 @@ function Error() {
         <Typography
           level="h3"
           fontWeight="xl"
-          color="primary"
           sx={{
             paddingBottom: '0.5rem',
+            color: '#6366f1',
           }}
         >
           404
@@ -52,7 +52,7 @@ function Error() {
             endDecorator={<EastIcon />}
             to="/"
             underline="none"
-            sx={{ textDecoration: 'none' }}
+            sx={{ textDecoration: 'none', color: '#6366f1' }}
           >
             Go back home
           </Link>

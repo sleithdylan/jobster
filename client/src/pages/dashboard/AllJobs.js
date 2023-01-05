@@ -125,7 +125,7 @@ function AllJobs() {
             }}
           >
             <IconButton
-              variant="outlined"
+              variant="plain"
               size="sm"
               onClick={() => setDrawerOpen(true)}
               sx={{ display: { sm: 'none' } }}
@@ -138,7 +138,7 @@ function AllJobs() {
                 paddingBottom: '1.5rem',
               }}
             >
-              <img src="/jobster-logo.svg" width={125} height={50} alt="" />
+              <img src="/jobster-logo.svg" width={125} height={20} alt="" />
             </Link>
           </Box>
           <Box
@@ -207,6 +207,7 @@ function AllJobs() {
             <Button
               size="sm"
               variant="plain"
+              color="primary"
               sx={{ fontSize: 'xs', px: 1 }}
               disabled={isLoading}
               onClick={handleSubmit}
@@ -225,14 +226,6 @@ function AllJobs() {
               <Typography level="body2" textColor="text.primary">
                 Search
               </Typography>
-              <IconButton
-                size="sm"
-                variant="plain"
-                color="primary"
-                sx={{ '--IconButton-size': '24px' }}
-              >
-                <KeyboardArrowDownIcon fontSize="small" color="primary" />
-              </IconButton>
             </Box>
             <Box sx={{ pt: '1rem' }}>
               <TextField
@@ -245,7 +238,6 @@ function AllJobs() {
             </Box>
           </Box>
           <Divider />
-
           <Box sx={{ p: 2 }}>
             <Box
               sx={{
@@ -257,14 +249,6 @@ function AllJobs() {
               <Typography level="body2" textColor="text.primary">
                 Status
               </Typography>
-              <IconButton
-                size="sm"
-                variant="plain"
-                color="primary"
-                sx={{ '--IconButton-size': '24px' }}
-              >
-                <KeyboardArrowDownIcon fontSize="small" color="primary" />
-              </IconButton>
             </Box>
             <Box sx={{ pt: '1rem' }}>
               <Select
@@ -290,7 +274,6 @@ function AllJobs() {
             </Box>
           </Box>
           <Divider />
-
           <Box sx={{ p: 2 }}>
             <Box
               sx={{
@@ -302,14 +285,6 @@ function AllJobs() {
               <Typography level="body2" textColor="text.primary">
                 Type
               </Typography>
-              <IconButton
-                size="sm"
-                variant="plain"
-                color="primary"
-                sx={{ '--IconButton-size': '24px' }}
-              >
-                <KeyboardArrowDownIcon fontSize="small" color="primary" />
-              </IconButton>
             </Box>
             <Box sx={{ pt: '1rem' }}>
               <Select
@@ -336,7 +311,6 @@ function AllJobs() {
             </Box>
           </Box>
           <Divider />
-
           <Box sx={{ p: 2 }}>
             <Box
               sx={{
@@ -348,14 +322,6 @@ function AllJobs() {
               <Typography level="body2" textColor="text.primary">
                 Sort
               </Typography>
-              <IconButton
-                size="sm"
-                variant="plain"
-                color="primary"
-                sx={{ '--IconButton-size': '24px' }}
-              >
-                <KeyboardArrowDownIcon fontSize="small" color="primary" />
-              </IconButton>
             </Box>
             <Box sx={{ pt: '1rem' }}>
               <Select
