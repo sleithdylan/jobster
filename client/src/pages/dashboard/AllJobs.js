@@ -305,6 +305,7 @@ function AllJobs() {
                 <Option value="all">all</Option>
                 <Option value="full-time">full-time</Option>
                 <Option value="part-time">part-time</Option>
+                <Option value="hybrid">hybrid</Option>
                 <Option value="remote">remote</Option>
                 <Option value="internship">internship</Option>
               </Select>
