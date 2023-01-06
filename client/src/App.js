@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import Error from './pages/Error';
-import Login from './pages/Login';
+import Error from 'pages/Error';
+import Login from 'pages/Login';
 import {
   AddJob,
   AllJobs,
   Profile,
   Stats,
   ProtectedRoute,
-} from './pages/dashboard/index';
+} from 'pages/dashboard/index';
 
 function App() {
   return (

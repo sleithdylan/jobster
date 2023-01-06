@@ -28,8 +28,8 @@ import {
   CLEAR_FILTERS,
   CHANGE_PAGE,
   LOGOUT_USER,
-} from './actions';
-import { initialState } from './appContext';
+} from 'context/actions';
+import { initialState } from 'context/appContext';
 
 const reducer = (state, action) => {
   if (action.type === DISPLAY_ALERT) {

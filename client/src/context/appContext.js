@@ -1,7 +1,7 @@
 import React, { useReducer, useContext } from 'react';
 import axios from 'axios';
 
-import reducer from './reducer';
+import reducer from 'context/reducer';
 import {
   DISPLAY_ALERT,
   CLEAR_ALERT,
@@ -32,7 +32,7 @@ import {
   CLEAR_FILTERS,
   CHANGE_PAGE,
   LOGOUT_USER,
-} from './actions';
+} from 'context/actions';
 
 const token = localStorage.getItem('token');
 const user = localStorage.getItem('user');

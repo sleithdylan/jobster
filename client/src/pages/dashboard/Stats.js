@@ -4,12 +4,12 @@ import { IconButton, Box, Typography, Menu, MenuItem } from '@mui/joy';
 import MenuIcon from '@mui/icons-material/Menu';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
-import Layout from '../../components/Layout';
-import Sidebar from '../../components/Sidebar';
-import Loader from '../../components/Loader';
-import StatsShell from '../../components/StatsShell';
-import ChartsShell from '../../components/ChartsShell';
-import { useAppContext } from '../../context/appContext';
+import Layout from 'components/Layout';
+import Sidebar from 'components/Sidebar';
+import Loader from 'components/Loader';
+import StatsShell from 'components/StatsShell';
+import ChartsShell from 'components/ChartsShell';
+import { useAppContext } from 'context/appContext';
 
 function Stats() {
   const { logoutUser, user, showStats, isLoading } = useAppContext();

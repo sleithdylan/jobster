@@ -1,8 +1,8 @@
 import React from 'react';
 import { Grid } from '@mui/material';
 
-import { useAppContext } from '../context/appContext';
-import SimpleAreaChart from './SimpleAreaChart';
+import { useAppContext } from 'context/appContext';
+import SimpleAreaChart from 'components/SimpleAreaChart';
 
 function ChartsShell() {
   const { monthlyApplications: data } = useAppContext();

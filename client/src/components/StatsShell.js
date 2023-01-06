@@ -4,8 +4,8 @@ import NoteAltIcon from '@mui/icons-material/NoteAlt';
 import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
 import { Grid } from '@mui/material';
 
-import { useAppContext } from '../context/appContext';
-import StatsItem from './StatsItem';
+import { useAppContext } from 'context/appContext';
+import StatsItem from 'components/StatsItem';
 
 function StatsShell() {
   const { stats } = useAppContext();

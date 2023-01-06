@@ -1,7 +1,7 @@
 import React from 'react';
 import Alert from '@mui/joy/Alert';
 
-import { useAppContext } from '../context/appContext';
+import { useAppContext } from 'context/appContext';
 
 function Notification() {
   const { alertType, alertText } = useAppContext();

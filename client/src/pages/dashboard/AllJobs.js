@@ -25,11 +25,11 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import moment from 'moment';
 import { Pagination } from '@mui/material';
 
-import Layout from '../../components/Layout';
-import Sidebar from '../../components/Sidebar';
-import Loader from '../../components/Loader';
-import Notification from '../../components/Notification';
-import { useAppContext } from '../../context/appContext';
+import Layout from 'components/Layout';
+import Sidebar from 'components/Sidebar';
+import Loader from 'components/Loader';
+import Notification from 'components/Notification';
+import { useAppContext } from 'context/appContext';
 
 function AllJobs() {
   const {

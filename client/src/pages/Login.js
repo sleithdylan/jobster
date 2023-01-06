@@ -11,8 +11,8 @@ import {
 } from '@mui/joy';
 import { Box, Grid } from '@mui/material';
 
-import Notification from '../components/Notification';
-import { useAppContext } from '../context/appContext';
+import Notification from 'components/Notification';
+import { useAppContext } from 'context/appContext';
 
 const initialState = {
   name: '',
