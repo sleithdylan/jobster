@@ -1,3 +1,18 @@
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/github_username/repo_name">
+    <img src="./client/public/jobster-logo.svg" alt="Logo"  height="30">
+  </a>
+	<br />
+	<br />
+  <p align="center">
+A web application to help you stay on top of your job applications.
+  </p>
+</div>
+
+![Jobster](/client/public/jobster-github.png)
+
 ## 🚀 Quick start
 
 Start running locally.
