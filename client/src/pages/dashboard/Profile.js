@@ -216,7 +216,7 @@ function Profile() {
                   <Box sx={{ padding: '0 1rem 1rem 1rem' }}>
                     <TextField
                       label="Location"
-                      placeholder="Dublin"
+                      placeholder="e.g. Dublin"
                       variant="outlined"
                       name="location"
                       value={location}

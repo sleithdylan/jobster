@@ -32,13 +32,11 @@ const UserSchema = new Schema({
     type: String,
     maxlength: 20,
     trim: true,
-    default: 'Green',
   },
   location: {
     type: String,
     maxlength: 20,
     trim: true,
-    default: 'Dublin',
   },
 });
 
