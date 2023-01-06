@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
-import Sidebar from '../../components/Sidebar';
-import Layout from '../../components/Layout';
-import { useAppContext } from '../../context/appContext';
 import { Link } from 'react-router-dom';
-
 import {
   IconButton,
   Box,
@@ -23,7 +19,11 @@ import { Grid } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import MenuIcon from '@mui/icons-material/Menu';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
+
+import Sidebar from '../../components/Sidebar';
+import Layout from '../../components/Layout';
 import Notification from '../../components/Notification';
+import { useAppContext } from '../../context/appContext';
 
 function AddJob() {
   const {

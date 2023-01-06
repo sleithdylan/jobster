@@ -29,7 +29,6 @@ import {
   CHANGE_PAGE,
   LOGOUT_USER,
 } from './actions';
-
 import { initialState } from './appContext';
 
 const reducer = (state, action) => {

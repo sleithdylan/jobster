@@ -1,5 +1,6 @@
-import { Grid } from '@mui/material';
 import React from 'react';
+import { Grid } from '@mui/material';
+
 import { useAppContext } from '../context/appContext';
 import SimpleAreaChart from './SimpleAreaChart';
 

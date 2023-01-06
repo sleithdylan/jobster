@@ -1,6 +1,7 @@
 import React, { useReducer, useContext } from 'react';
-import reducer from './reducer';
 import axios from 'axios';
+
+import reducer from './reducer';
 import {
   DISPLAY_ALERT,
   CLEAR_ALERT,

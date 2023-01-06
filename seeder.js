@@ -1,14 +1,11 @@
-import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 
 import jobs from './data/jobs.js';
-
-import dotenv from 'dotenv';
-dotenv.config();
-
 // DB and authenticateUser
 import connectDB from './db/connect.js';
-
 import Job from './models/Job.js';
+
+dotenv.config();
 
 const importData = async () => {
   try {

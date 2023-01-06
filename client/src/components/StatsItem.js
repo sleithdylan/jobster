@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Box, Typography, Sheet } from '@mui/joy';
 
 function StatsItem({ title, count, icon, backgroundColor }) {

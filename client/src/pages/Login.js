@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Notification from '../components/Notification';
-import { useAppContext } from '../context/appContext';
 import { useNavigate } from 'react-router-dom';
-
 import {
   Link,
   CssBaseline,
@@ -13,6 +10,9 @@ import {
   Divider,
 } from '@mui/joy';
 import { Box, Grid } from '@mui/material';
+
+import Notification from '../components/Notification';
+import { useAppContext } from '../context/appContext';
 
 const initialState = {
   name: '',

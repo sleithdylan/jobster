@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
-import Sidebar from '../../components/Sidebar';
-import Layout from '../../components/Layout';
-import { useAppContext } from '../../context/appContext';
 import { Link, useNavigate } from 'react-router-dom';
-
 import {
   IconButton,
   Box,
@@ -18,7 +14,11 @@ import {
 import { Grid } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import MenuIcon from '@mui/icons-material/Menu';
+
+import Sidebar from '../../components/Sidebar';
+import Layout from '../../components/Layout';
 import Notification from '../../components/Notification';
+import { useAppContext } from '../../context/appContext';
 
 function Profile() {
   const { logoutUser, user, displayAlert, showAlert, updateUser, isLoading } =

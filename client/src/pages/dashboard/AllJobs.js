@@ -1,9 +1,5 @@
 import React, { useEffect } from 'react';
-import Layout from '../../components/Layout';
-import Sidebar from '../../components/Sidebar';
-import { useAppContext } from '../../context/appContext';
 import { Link } from 'react-router-dom';
-
 import {
   IconButton,
   Box,
@@ -24,12 +20,16 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
-import Loader from '../../components/Loader';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import moment from 'moment';
 import { Pagination } from '@mui/material';
+
+import Layout from '../../components/Layout';
+import Sidebar from '../../components/Sidebar';
+import Loader from '../../components/Loader';
 import Notification from '../../components/Notification';
+import { useAppContext } from '../../context/appContext';
 
 function AllJobs() {
   const {
