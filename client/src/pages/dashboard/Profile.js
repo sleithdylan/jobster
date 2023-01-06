@@ -19,6 +19,7 @@ import Sidebar from 'components/Sidebar';
 import Layout from 'components/Layout';
 import Notification from 'components/Notification';
 import { useAppContext } from 'context/appContext';
+import { Helmet } from 'react-helmet';
 
 function Profile() {
   const { logoutUser, user, displayAlert, showAlert, updateUser, isLoading } =
@@ -53,6 +54,10 @@ function Profile() {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Jobster - Profile</title>
+      </Helmet>
       {drawerOpen && (
         <Layout.SideDrawer onClose={() => setDrawerOpen(false)}>
           <Sidebar />

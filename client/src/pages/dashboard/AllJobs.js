@@ -30,6 +30,7 @@ import Sidebar from 'components/Sidebar';
 import Loader from 'components/Loader';
 import Notification from 'components/Notification';
 import { useAppContext } from 'context/appContext';
+import { Helmet } from 'react-helmet';
 
 function AllJobs() {
   const {
@@ -96,6 +97,10 @@ function AllJobs() {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Jobster - All Jobs</title>
+      </Helmet>
       {drawerOpen && (
         <Layout.SideDrawer onClose={() => setDrawerOpen(false)}>
           <Sidebar />

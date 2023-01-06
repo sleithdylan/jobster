@@ -24,6 +24,7 @@ import Sidebar from 'components/Sidebar';
 import Layout from 'components/Layout';
 import Notification from 'components/Notification';
 import { useAppContext } from 'context/appContext';
+import { Helmet } from 'react-helmet';
 
 function AddJob() {
   const {
@@ -94,6 +95,10 @@ function AddJob() {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Jobster - {isEditing ? 'Edit Job' : 'Add Job'}</title>
+      </Helmet>
       {drawerOpen && (
         <Layout.SideDrawer onClose={() => setDrawerOpen(false)}>
           <Sidebar />

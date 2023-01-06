@@ -10,6 +10,7 @@ import {
   Divider,
 } from '@mui/joy';
 import { Box, Grid } from '@mui/material';
+import { Helmet } from 'react-helmet';
 
 import Notification from 'components/Notification';
 import { useAppContext } from 'context/appContext';
@@ -79,6 +80,10 @@ function Login() {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Jobster - {values.isMember ? 'Login' : 'Sign up'}</title>
+      </Helmet>
       <CssBaseline />
       <Grid
         flexDirection="column"

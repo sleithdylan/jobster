@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { IconButton, Box, Typography, Menu, MenuItem } from '@mui/joy';
 import MenuIcon from '@mui/icons-material/Menu';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { Helmet } from 'react-helmet';
 
 import Layout from 'components/Layout';
 import Sidebar from 'components/Sidebar';
@@ -32,6 +33,10 @@ function Stats() {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Jobster - Stats</title>
+      </Helmet>
       {drawerOpen && (
         <Layout.SideDrawer onClose={() => setDrawerOpen(false)}>
           <Sidebar />
