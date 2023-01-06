@@ -8,6 +8,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
+
 import { Divider, Sheet, Typography } from '@mui/joy';
 
 function SimpleAreaChart({ data }) {

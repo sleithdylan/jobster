@@ -290,6 +290,7 @@ const reducer = (state, action) => {
       isLoading: false,
       stats: action.payload.stats,
       monthlyApplications: action.payload.monthlyApplications,
+      jobTypes: action.payload.jobTypes,
     };
   }
 

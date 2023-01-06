@@ -61,6 +61,7 @@ const initialState = {
   page: 1,
   stats: {},
   monthlyApplications: [],
+  jobTypes: [],
   search: '',
   searchStatus: '',
   searchType: '',
@@ -322,6 +323,7 @@ const AppProvider = ({ children }) => {
         payload: {
           stats: data.defaultStats,
           monthlyApplications: data.monthlyApplications,
+          jobTypes: data.jobTypes,
         },
       });
     } catch (error) {

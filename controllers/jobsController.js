@@ -165,7 +165,30 @@ const showStats = async (req, res) => {
     })
     .reverse();
 
-  res.status(StatusCodes.OK).json({ defaultStats, monthlyApplications });
+  let jobTypes = await Job.aggregate([
+    {
+      $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) },
+    },
+    {
+      $group: {
+        _id: { type: '$jobType' },
+        count: { $sum: 1 },
+      },
+    },
+  ]);
+
+  jobTypes = jobTypes.map((item) => {
+    const {
+      _id: { type },
+      count,
+    } = item;
+
+    return { type, count };
+  });
+
+  res
+    .status(StatusCodes.OK)
+    .json({ defaultStats, monthlyApplications, jobTypes });
 };
 
 export { createJob, getAllJobs, updateJob, deleteJob, showStats };
