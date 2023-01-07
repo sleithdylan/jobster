@@ -108,7 +108,6 @@ function AllJobs() {
         }}
       >
         <Header
-          onProfileOpen={(e) => setAnchorEl(e.currentTarget)}
           onDrawerOpen={() => setDrawerOpen(true)}
           onLogout={logoutUser}
         />

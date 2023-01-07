@@ -7,7 +7,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Layout from './Layout';
 import { useAppContext } from 'context/appContext';
 
-function Header({ onDrawerOpen, onProfileOpen, onLogout }) {
+function Header({ onDrawerOpen, onLogout }) {
   const { user } = useAppContext();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -62,7 +62,7 @@ function Header({ onDrawerOpen, onProfileOpen, onLogout }) {
               background: 'none',
             },
           }}
-          onClick={onProfileOpen}
+          onClick={(e) => setAnchorEl(e.currentTarget)}
         >
           <Typography sx={{ marginLeft: '0.75rem', marginRight: '0.25rem' }}>
             {user?.name}
