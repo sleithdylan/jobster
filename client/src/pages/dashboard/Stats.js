@@ -7,10 +7,11 @@ import { Helmet } from 'react-helmet';
 
 import Layout from 'components/Layout';
 import Sidebar from 'components/Sidebar';
-import Loader from 'components/Loader';
 import StatsShell from 'components/StatsShell';
 import ChartsShell from 'components/ChartsShell';
 import { useAppContext } from 'context/appContext';
+import StatsItemSkeleton from 'components/StatsItemSkeleton';
+import ChartSkeleton from 'components/ChartSkeleton';
 
 function Stats() {
   const { logoutUser, user, showStats, isLoading } = useAppContext();
@@ -133,15 +134,10 @@ function Stats() {
               <ChartsShell />
             </>
           ) : (
-            <Box
-              sx={{
-                left: '56.5vw',
-                top: '50vh',
-                position: 'absolute',
-              }}
-            >
-              <Loader />
-            </Box>
+            <>
+              <StatsItemSkeleton />
+              <ChartSkeleton />
+            </>
           )}
         </Layout.Main>
       </Layout.Root>

@@ -1,10 +1,8 @@
 import { Divider, Sheet, Typography } from '@mui/joy';
 import React from 'react';
 import {
-  Legend,
   PolarAngleAxis,
   PolarGrid,
-  PolarRadiusAxis,
   Radar,
   RadarChart,
   ResponsiveContainer,
