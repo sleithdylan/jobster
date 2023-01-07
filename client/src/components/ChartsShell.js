@@ -8,7 +8,7 @@ import SimpleRadarChart from 'components/SimpleRadarChart';
 function ChartsShell() {
   const { monthlyApplications, jobTypes } = useAppContext();
   return (
-    <Grid container columns={12} spacing={2}>
+    <Grid container columns={12} spacing={{ lg: 2 }}>
       <Grid item xs={12} sm={12} md={12} lg={8}>
         <SimpleAreaChart data={monthlyApplications} />
       </Grid>
