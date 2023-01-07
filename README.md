@@ -1,4 +1,3 @@
-<!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
@@ -9,6 +8,7 @@
   <p align="center">
 A web application to help you stay on top of your job applications.
   </p>
+  <br />
 </div>
 
 ![Jobster](/client/public/jobster-github.png)
