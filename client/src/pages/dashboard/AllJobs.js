@@ -1,25 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 import {
   Box,
   Typography,
-  Avatar,
   Button,
-  Chip,
   Divider,
   List,
-  Sheet,
   Select,
   selectClasses,
   Option,
   TextField,
 } from '@mui/joy';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import moment from 'moment';
 import { Pagination } from '@mui/material';
+import { Add } from '@mui/icons-material';
+import CreateNewFolderIcon from '@mui/icons-material/CreateNewFolder';
 
 import Layout from 'components/Layout';
 import Sidebar from 'components/Sidebar';
@@ -27,6 +23,7 @@ import Notification from 'components/Notification';
 import { useAppContext } from 'context/appContext';
 import JobItemSkeleton from 'components/JobItemSkeleton';
 import Header from 'components/Header';
+import JobItem from 'components/JobItem';
 
 function AllJobs() {
   const {
@@ -35,8 +32,6 @@ function AllJobs() {
     jobs,
     isLoading,
     totalJobs,
-    setEditJob,
-    deleteJob,
     search,
     searchStatus,
     searchType,
@@ -49,8 +44,6 @@ function AllJobs() {
     showAlert,
   } = useAppContext();
   const [drawerOpen, setDrawerOpen] = useState(false);
-  // eslint-disable-next-line no-unused-vars
-  const [anchorEl, setAnchorEl] = useState(null);
 
   useEffect(() => {
     getJobs();
@@ -286,152 +279,61 @@ function AllJobs() {
           )}
           {!isLoading ? (
             <>
-              <List
-                sx={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-                  gap: 2,
-                }}
-              >
-                {jobs.length !== 0 ? (
-                  jobs.map((job) => {
-                    return (
-                      <Sheet
-                        key={job._id}
-                        {...job}
-                        component="li"
-                        variant="outlined"
-                        sx={{
-                          borderRadius: 'sm',
-                          p: 2,
-                          listStyle: 'none',
-                        }}
-                      >
-                        <Box
-                          sx={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            gap: 2,
-                          }}
-                        >
-                          <Box
-                            sx={{
-                              display: 'flex',
-                              alignItems: 'center',
-                              gap: 2,
-                            }}
-                          >
-                            <Avatar
-                              src={`https://app.outboundsales.io/api/logo/${job.company.toLowerCase()}.com`}
-                            />
-                            <Typography>{job.company}</Typography>
-                          </Box>
-                          <Chip
-                            variant="soft"
-                            color={
-                              job.status === 'declined'
-                                ? 'danger'
-                                : job.status === 'interview'
-                                ? 'primary'
-                                : job.status === 'pending'
-                                ? 'warning'
-                                : null
-                            }
-                            sx={{
-                              borderRadius: '5px',
-                              textTransform: 'capitalize',
-                            }}
-                          >
-                            {job.status}
-                          </Chip>
-                        </Box>
-
-                        <Box sx={{ my: 2 }}>
-                          <Typography level="h5" fontWeight="bold">
-                            {job.position}
-                          </Typography>
-                        </Box>
-                        <Box sx={{ my: 2 }}>
-                          <Chip
-                            variant="outlined"
-                            color="neutral"
-                            size="sm"
-                            sx={{ borderRadius: '5px', mb: 1 }}
-                          >
-                            {job.jobType}
-                          </Chip>
-                        </Box>
-
-                        <Box
-                          sx={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            gap: 2,
-                          }}
-                        >
-                          <Box
-                            sx={{
-                              display: 'flex',
-                              alignItems: 'center',
-                              gap: 2,
-                            }}
-                          >
-                            <Typography
-                              fontSize="sm"
-                              sx={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: 1,
-                              }}
-                            >
-                              <LocationOnIcon />
-                              {job.jobLocation}
-                            </Typography>
-                          </Box>
-                          <Typography
-                            fontSize="sm"
-                            sx={{
-                              display: 'flex',
-                              alignItems: 'center',
-                              gap: 1,
-                            }}
-                          >
-                            <AccessTimeIcon />
-                            {moment(job.createdAt).format('LL')}
-                          </Typography>
-                        </Box>
-                        <Divider sx={{ my: 2 }} />
-                        <Box>
-                          <Link
-                            to={`/dashboard/add-job`}
-                            onClick={() => setEditJob(job._id)}
-                            style={{ textDecoration: 'none' }}
-                          >
-                            <Button color="primary" variant="solid" fullWidth>
-                              Edit
-                            </Button>{' '}
-                          </Link>
-                          <Box
-                            sx={{
-                              my: 2,
-                            }}
-                          ></Box>
-                          <Button
-                            color="danger"
-                            variant="outlined"
-                            onClick={() => deleteJob(job._id)}
-                            fullWidth
-                          >
-                            Remove
-                          </Button>
-                        </Box>
-                      </Sheet>
-                    );
-                  })
-                ) : (
-                  <Typography level="h5">No jobs found...</Typography>
-                )}
-              </List>
+              {jobs.length === 0 ? (
+                <Box
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    height: '75vh',
+                  }}
+                >
+                  <CreateNewFolderIcon
+                    sx={{
+                      width: '3rem',
+                      height: '3rem',
+                      color: '#434356',
+                      mb: 1,
+                    }}
+                  />
+                  <Typography level="h5">No Jobs</Typography>
+                  <Typography level="body1" color="neutral">
+                    Get started by adding a new job.
+                  </Typography>
+                  <Link
+                    to="/dashboard/add-job"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    <Button sx={{ mt: 2 }} startDecorator={<Add />}>
+                      Add a job
+                    </Button>
+                  </Link>
+                </Box>
+              ) : (
+                <List
+                  sx={{
+                    display: 'grid',
+                    gridTemplateColumns:
+                      'repeat(auto-fill, minmax(300px, 1fr))',
+                    gap: 2,
+                  }}
+                >
+                  {jobs.length !== 0
+                    ? jobs.map((job) => (
+                        <JobItem
+                          id={job._id}
+                          company={job.company}
+                          status={job.status}
+                          position={job.position}
+                          jobType={job.jobType}
+                          jobLocation={job.jobLocation}
+                          createdAt={job.createdAt}
+                        />
+                      ))
+                    : null}
+                </List>
+              )}
               <Box
                 sx={{ display: 'flex', mt: 3, mb: 2, justifyContent: 'center' }}
               >
