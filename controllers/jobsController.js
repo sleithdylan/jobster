@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 
 import Job from '../models/Job.js';
 import { BadRequestError, NotFoundError } from '../errors/index.js';
-import checkPermissions from '../utils/checkPermissions.js';
+import { checkPermissions } from '../utils/checkPermissions.js';
 
 const createJob = async (req, res) => {
   const { position, company } = req.body;
