@@ -1,17 +1,9 @@
 import 'express-async-errors';
 import express from 'express';
-const app = express();
-const port = process.env.PORT || 5000;
-
 import dotenv from 'dotenv';
-dotenv.config();
-
 import morgan from 'morgan';
-
-import { dirname } from 'path';
+import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import path from 'path';
-
 import helmet from 'helmet';
 import xss from 'xss-clean';
 import mongoSanitize from 'express-mongo-sanitize';
@@ -27,6 +19,11 @@ import jobsRouter from './routes/jobsRoutes.js';
 import notFoundMiddleware from './middleware/not-found.js';
 import errorHandlerMiddleware from './middleware/error-handler.js';
 import authenticateUser from './middleware/auth.js';
+
+const app = express();
+const port = process.env.PORT || 5000;
+
+dotenv.config();
 
 if (process.env.NODE_ENV !== 'production') {
   app.use(morgan('dev'));
