@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import {
   Box,
   Typography,
@@ -18,7 +19,6 @@ import Sidebar from 'components/Sidebar';
 import Layout from 'components/Layout';
 import Notification from 'components/Notification';
 import { useAppContext } from 'context/appContext';
-import { Helmet } from 'react-helmet';
 import Header from 'components/Header';
 
 function AddJob() {
