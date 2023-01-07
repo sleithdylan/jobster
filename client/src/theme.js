@@ -78,6 +78,7 @@ const joyTheme = extendJoyTheme({
           plainColor: '#6366f1',
           plainHoverBg: '#eef2ff',
           plainActiveBg: '#e0e7ff',
+          plainDisabledColor: '#6366f1',
           solidBg: '#6366f1',
           solidHoverBg: '#4f46e5',
           solidActiveBg: '#4338ca',
