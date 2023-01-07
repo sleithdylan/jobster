@@ -4,7 +4,6 @@ import { IconButton, Box, Typography, Menu, MenuItem } from '@mui/joy';
 import MenuIcon from '@mui/icons-material/Menu';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
-import Layout from './Layout';
 import { useAppContext } from 'context/appContext';
 
 function Header({ onDrawerOpen, onLogout }) {
@@ -17,7 +16,7 @@ function Header({ onDrawerOpen, onLogout }) {
   };
 
   return (
-    <Layout.Header>
+    <>
       <Box
         sx={{
           display: 'flex',
@@ -76,7 +75,7 @@ function Header({ onDrawerOpen, onLogout }) {
           <MenuItem onClick={onLogout}>Logout</MenuItem>
         </Menu>
       </Box>
-    </Layout.Header>
+    </>
   );
 }
 

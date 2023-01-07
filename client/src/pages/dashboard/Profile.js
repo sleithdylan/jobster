@@ -58,10 +58,12 @@ function Profile() {
           gridTemplateRows: '64px 1fr',
         }}
       >
-        <Header
-          onDrawerOpen={() => setDrawerOpen(true)}
-          onLogout={logoutUser}
-        />
+        <Layout.Header>
+          <Header
+            onDrawerOpen={() => setDrawerOpen(true)}
+            onLogout={logoutUser}
+          />
+        </Layout.Header>
         <Layout.SideNav>
           <Sidebar />
         </Layout.SideNav>
