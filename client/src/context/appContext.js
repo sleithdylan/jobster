@@ -66,7 +66,7 @@ const initialState = {
   searchStatus: '',
   searchType: '',
   sort: 'latest',
-  sortOptions: ['latest', 'oldest', 'a-z', 'z-a'],
+  sortOptions: ['latest', 'oldest'],
 };
 
 const AppContext = React.createContext();
