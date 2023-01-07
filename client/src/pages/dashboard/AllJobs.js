@@ -27,10 +27,10 @@ import { Pagination } from '@mui/material';
 
 import Layout from 'components/Layout';
 import Sidebar from 'components/Sidebar';
-import Loader from 'components/Loader';
 import Notification from 'components/Notification';
 import { useAppContext } from 'context/appContext';
 import { Helmet } from 'react-helmet';
+import JobItemSkeleton from 'components/JobItemSkeleton';
 
 function AllJobs() {
   const {
@@ -521,15 +521,9 @@ function AllJobs() {
               </Box>
             </>
           ) : (
-            <Box
-              sx={{
-                left: '70vw',
-                top: '50vh',
-                position: 'absolute',
-              }}
-            >
-              <Loader />
-            </Box>
+            <>
+              <JobItemSkeleton />
+            </>
           )}
         </Layout.Main>
       </Layout.Root>
