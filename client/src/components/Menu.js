@@ -35,7 +35,7 @@ function Menu({ control, menus, id }) {
   };
 
   return (
-    <React.Fragment>
+    <>
       {React.cloneElement(control, {
         type: 'button',
         onClick: handleButtonClick,
@@ -75,7 +75,7 @@ function Menu({ control, menus, id }) {
           return React.cloneElement(menuItem, { key: label });
         })}
       </JoyMenu>
-    </React.Fragment>
+    </>
   );
 }
 

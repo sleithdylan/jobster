@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   IconButton,
@@ -53,8 +53,8 @@ function AllJobs() {
     changePage,
     showAlert,
   } = useAppContext();
-  const [drawerOpen, setDrawerOpen] = React.useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IconButton, Box, Typography, Menu, MenuItem } from '@mui/joy';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -15,8 +15,8 @@ import ChartSkeleton from 'components/ChartSkeleton';
 
 function Stats() {
   const { logoutUser, user, showStats, isLoading } = useAppContext();
-  const [drawerOpen, setDrawerOpen] = React.useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
   const handleClick = (event) => {

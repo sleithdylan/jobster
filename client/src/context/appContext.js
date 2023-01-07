@@ -1,4 +1,4 @@
-import React, { useReducer, useContext } from 'react';
+import React, { useReducer, useContext, createContext } from 'react';
 import axios from 'axios';
 
 import reducer from 'context/reducer';
@@ -69,7 +69,7 @@ const initialState = {
   sortOptions: ['latest', 'oldest'],
 };
 
-const AppContext = React.createContext();
+const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
