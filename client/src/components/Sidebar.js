@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {
   List,
   ListItem,
@@ -12,6 +12,8 @@ import PostAddIcon from '@mui/icons-material/PostAdd';
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
 
 function Sidebar() {
+  const location = useLocation();
+
   return (
     <List size="sm" sx={{ '--List-item-radius': '8px', '--List-gap': '4px' }}>
       <ListItem nested>
@@ -24,8 +26,19 @@ function Sidebar() {
         >
           <Link to="/dashboard/stats" style={{ textDecoration: 'none' }}>
             <ListItem>
-              <ListItemButton>
-                <ListItemDecorator sx={{ color: 'neutral.500' }}>
+              <ListItemButton
+                variant="solid"
+                color={
+                  location.pathname === '/dashboard/stats' ? 'primary' : null
+                }
+              >
+                <ListItemDecorator
+                  sx={
+                    location.pathname === '/dashboard/stats'
+                      ? { color: '#ffffff' }
+                      : null
+                  }
+                >
                   <AnalyticsIcon fontSize="small" />
                 </ListItemDecorator>
                 <ListItemContent>Stats</ListItemContent>
@@ -34,23 +47,45 @@ function Sidebar() {
           </Link>
           <Link to="/dashboard/all-jobs" style={{ textDecoration: 'none' }}>
             <ListItem>
-              <ListItemButton>
-                <ListItemDecorator sx={{ color: 'neutral.500' }}>
+              <ListItemButton
+                variant="solid"
+                color={
+                  location.pathname === '/dashboard/all-jobs' ? 'primary' : null
+                }
+              >
+                <ListItemDecorator
+                  sx={
+                    location.pathname === '/dashboard/all-jobs'
+                      ? { color: '#ffffff' }
+                      : null
+                  }
+                >
                   <ManageSearchIcon fontSize="small" />
                 </ListItemDecorator>
                 <ListItemContent>All Jobs </ListItemContent>
               </ListItemButton>
             </ListItem>
-          </Link>{' '}
+          </Link>
           <Link to="/dashboard/add-job" style={{ textDecoration: 'none' }}>
             <ListItem>
-              <ListItemButton>
-                <ListItemDecorator sx={{ color: 'neutral.500' }}>
+              <ListItemButton
+                variant="solid"
+                color={
+                  location.pathname === '/dashboard/add-job' ? 'primary' : null
+                }
+              >
+                <ListItemDecorator
+                  sx={
+                    location.pathname === '/dashboard/add-job'
+                      ? { color: '#ffffff' }
+                      : null
+                  }
+                >
                   <PostAddIcon fontSize="small" />
                 </ListItemDecorator>
                 <ListItemContent>Add Job </ListItemContent>
               </ListItemButton>
-            </ListItem>{' '}
+            </ListItem>
           </Link>
         </List>
       </ListItem>
