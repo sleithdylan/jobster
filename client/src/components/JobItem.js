@@ -131,7 +131,7 @@ function JobItem({
       <Divider sx={{ my: 2 }} />
       <Box>
         <Link
-          to={`/dashboard/add-job`}
+          to={`/dashboard/edit-job`}
           onClick={() => setEditJob(id)}
           style={{ textDecoration: 'none' }}
         >

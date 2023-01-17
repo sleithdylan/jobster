@@ -153,7 +153,6 @@ const reducer = (state, action) => {
 
   if (action.type === CLEAR_VALUES) {
     const initialState = {
-      isEditing: false,
       editJobId: '',
       position: '',
       company: '',
@@ -212,7 +211,6 @@ const reducer = (state, action) => {
 
     return {
       ...state,
-      isEditing: true,
       editJobId: _id,
       position,
       company,

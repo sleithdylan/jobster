@@ -5,6 +5,7 @@ import Error from 'pages/Error';
 import Login from 'pages/Login';
 import {
   AddJob,
+  EditJob,
   AllJobs,
   Profile,
   Stats,
@@ -36,6 +37,14 @@ function App() {
           element={
             <ProtectedRoute>
               <AddJob />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/dashboard/edit-job"
+          element={
+            <ProtectedRoute>
+              <EditJob />
             </ProtectedRoute>
           }
         />

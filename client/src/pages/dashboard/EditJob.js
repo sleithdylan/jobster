@@ -21,7 +21,7 @@ import Notification from 'components/Notification';
 import { useAppContext } from 'context/appContext';
 import Header from 'components/Header';
 
-function AddJob() {
+function EditJob() {
   const {
     logoutUser,
     displayAlert,
@@ -36,7 +36,7 @@ function AddJob() {
     statusOptions,
     handleChange,
     clearValues,
-    createJob,
+    editJob,
   } = useAppContext();
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -67,14 +67,14 @@ function AddJob() {
       return;
     }
 
-    createJob();
+    editJob();
   };
 
   return (
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Jobster - Add Job</title>
+        <title>Jobster - Edit Job</title>
       </Helmet>
       {drawerOpen && (
         <Layout.SideDrawer onClose={() => setDrawerOpen(false)}>
@@ -122,9 +122,9 @@ function AddJob() {
             >
               <Grid container columns={12}>
                 <Grid item xs={12} md={4} sx={{ padding: '0 0 1rem 0' }}>
-                  <Typography level="h6">Add Job</Typography>
+                  <Typography level="h6">Edit Job</Typography>
                   <Typography level="body2">
-                    Add all of your job details here...
+                    Edit all of your job details here...
                   </Typography>
                 </Grid>
                 <Grid item xs={12} md={4}>
@@ -277,4 +277,4 @@ function AddJob() {
   );
 }
 
-export default AddJob;
+export default EditJob;
