@@ -250,7 +250,7 @@ function AllJobs() {
             </Box>
             <Box sx={{ pt: '1rem' }}>
               <Select
-                placeholder="Sort by"
+                placeholder="latest"
                 name="sort"
                 value={sort}
                 onChange={handleSort}
