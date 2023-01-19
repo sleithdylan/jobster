@@ -112,62 +112,76 @@ function Login() {
             listStyle: 'none',
           }}
         >
-          <Grid flexDirection="column" minWidth={350}>
-            <Typography level="h4" fontWeight="xl">
-              {values.isMember
-                ? 'Sign in to your account'
-                : ' Create an account'}
-            </Typography>
-            {showAlert && (
-              <Box
-                sx={{
-                  margin: '1.5rem 0',
-                }}
-              >
-                <Notification />
-              </Box>
-            )}
-            <form onSubmit={onSubmit}>
-              {!values.isMember && (
+          <Grid flexDirection="column">
+            <Grid item xs={12}>
+              <Typography level="h4" fontWeight="xl">
+                {values.isMember
+                  ? 'Sign in to your account'
+                  : ' Create an account'}
+              </Typography>
+              {showAlert && (
+                <Box
+                  sx={{
+                    margin: '1.5rem 0',
+                  }}
+                >
+                  <Notification />
+                </Box>
+              )}
+              <form onSubmit={onSubmit}>
+                {!values.isMember && (
+                  <TextField
+                    type="text"
+                    label="Your name"
+                    name="name"
+                    placeholder="e.g. Bonnie"
+                    variant="outlined"
+                    onChange={handleChange}
+                    value={values.name}
+                    sx={{
+                      margin: '1.5rem 0',
+                    }}
+                  />
+                )}
                 <TextField
                   type="text"
-                  label="Your name"
-                  name="name"
-                  placeholder="e.g. Bonnie"
+                  label="Your email"
+                  name="email"
+                  placeholder="name@company.com"
                   variant="outlined"
                   onChange={handleChange}
-                  value={values.name}
+                  value={values.email}
                   sx={{
                     margin: '1.5rem 0',
                   }}
                 />
-              )}
-              <TextField
-                type="text"
-                label="Your email"
-                name="email"
-                placeholder="name@company.com"
-                variant="outlined"
-                onChange={handleChange}
-                value={values.email}
-                sx={{
-                  margin: '1.5rem 0',
-                }}
-              />
-              <TextField
-                type="password"
-                label="Password"
-                name="password"
-                placeholder="********"
-                variant="outlined"
-                onChange={handleChange}
-                value={values.password}
-                sx={{
-                  margin: '1.5rem 0',
-                }}
-              />
-              {values.isMember ? (
-                <>
+                <TextField
+                  type="password"
+                  label="Password"
+                  name="password"
+                  placeholder="********"
+                  variant="outlined"
+                  onChange={handleChange}
+                  value={values.password}
+                  sx={{
+                    margin: '1.5rem 0',
+                  }}
+                />
+                {values.isMember ? (
+                  <>
+                    <Button
+                      type="submit"
+                      variant="solid"
+                      fullWidth
+                      disabled={isLoading}
+                      sx={{
+                        marginBottom: '1.5rem',
+                      }}
+                    >
+                      {isLoading ? 'Please wait...' : 'Sign in'}
+                    </Button>
+                  </>
+                ) : (
                   <Button
                     type="submit"
                     variant="solid"
@@ -177,81 +191,69 @@ function Login() {
                       marginBottom: '1.5rem',
                     }}
                   >
-                    {isLoading ? 'Please wait...' : 'Sign in'}
+                    {isLoading ? 'Please wait...' : 'Create an account'}
                   </Button>
-                </>
-              ) : (
-                <Button
-                  type="submit"
-                  variant="solid"
-                  fullWidth
-                  disabled={isLoading}
-                  sx={{
-                    marginBottom: '1.5rem',
-                  }}
-                >
-                  {isLoading ? 'Please wait...' : 'Create an account'}
-                </Button>
-              )}
-              {values.isMember ? (
-                <Typography level="body2">
-                  Don’t have an account yet?{' '}
-                  <Link
-                    onClick={toggleMember}
-                    fontWeight="lg"
-                    sx={{ color: '#6366f1' }}
-                  >
-                    Sign up
-                  </Link>
-                </Typography>
-              ) : (
-                <Typography level="body2">
-                  Already have an account?{' '}
-                  <Link
-                    onClick={toggleMember}
-                    fontWeight="lg"
-                    sx={{ color: '#6366f1' }}
-                  >
-                    Login here
-                  </Link>
-                </Typography>
-              )}
-            </form>
-            <form onSubmit={onSubmitDemoUser}>
-              {values.isMember ? (
-                <>
-                  <Divider sx={{ mt: 2 }}>
-                    <Typography variant="h2">Or continue as</Typography>
-                  </Divider>
-                  <Button
-                    type="submit"
-                    onClick={() =>
-                      loginUser({
-                        email: 'demo@jobster.com',
-                        password: '*$aN5f8LQ!rM',
-                      })
-                    }
-                    variant="outlined"
-                    color="neutral"
-                    sx={{
-                      margin: '1.5rem 0',
-                      backgroundColor: '#F7F7F8',
-                      '&:hover': {
-                        backgroundColor: '#efefef',
-                        borderColor: '#d8d8df',
-                      },
-                      '&:active': {
-                        backgroundColor: '#e5e5e5',
-                        borderColor: '#d8d8df',
-                      },
-                    }}
-                    fullWidth
-                  >
-                    Demo User
-                  </Button>
-                </>
-              ) : null}
-            </form>
+                )}
+                {values.isMember ? (
+                  <Typography level="body2">
+                    Don’t have an account yet?{' '}
+                    <Link
+                      onClick={toggleMember}
+                      fontWeight="lg"
+                      sx={{ color: '#6366f1' }}
+                    >
+                      Sign up
+                    </Link>
+                  </Typography>
+                ) : (
+                  <Typography level="body2">
+                    Already have an account?{' '}
+                    <Link
+                      onClick={toggleMember}
+                      fontWeight="lg"
+                      sx={{ color: '#6366f1' }}
+                    >
+                      Login here
+                    </Link>
+                  </Typography>
+                )}
+              </form>
+              <form onSubmit={onSubmitDemoUser}>
+                {values.isMember ? (
+                  <>
+                    <Divider sx={{ mt: 2 }}>
+                      <Typography variant="h2">Or continue as</Typography>
+                    </Divider>
+                    <Button
+                      type="submit"
+                      onClick={() =>
+                        loginUser({
+                          email: 'demo@jobster.com',
+                          password: '*$aN5f8LQ!rM',
+                        })
+                      }
+                      variant="outlined"
+                      color="neutral"
+                      sx={{
+                        margin: '1.5rem 0',
+                        backgroundColor: '#F7F7F8',
+                        '&:hover': {
+                          backgroundColor: '#efefef',
+                          borderColor: '#d8d8df',
+                        },
+                        '&:active': {
+                          backgroundColor: '#e5e5e5',
+                          borderColor: '#d8d8df',
+                        },
+                      }}
+                      fullWidth
+                    >
+                      Demo User
+                    </Button>
+                  </>
+                ) : null}
+              </form>
+            </Grid>
           </Grid>
         </Sheet>
       </Grid>
