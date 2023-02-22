@@ -6,6 +6,13 @@ import Job from '../models/Job.js';
 import { BadRequestError, NotFoundError } from '../errors/index.js';
 import { checkPermissions } from '../utils/checkPermissions.js';
 
+/**
+ * Job Routes
+ */
+
+// @desc Create a new Job
+// @route POST /jobs
+// @access Private
 const createJob = async (req, res) => {
   const { position, company } = req.body;
 
@@ -20,6 +27,9 @@ const createJob = async (req, res) => {
   res.status(StatusCodes.CREATED).json({ job });
 };
 
+// @desc Get all jobs
+// @route GET /jobs
+// @access Public
 const getAllJobs = async (req, res) => {
   const { status, jobType, sort, search } = req.query;
 
@@ -65,6 +75,9 @@ const getAllJobs = async (req, res) => {
   res.status(StatusCodes.OK).json({ jobs, totalJobs, numOfPages: numOfPages });
 };
 
+// @desc Update a job
+// @route POST /jobs/:id
+// @access Private
 const updateJob = async (req, res) => {
   const { id: jobId } = req.params;
   const { company, position } = req.body;
@@ -89,6 +102,9 @@ const updateJob = async (req, res) => {
   res.status(StatusCodes.OK).json({ updatedJob });
 };
 
+// @desc Delete a job
+// @route DELETE /jobs/:id
+// @access Private
 const deleteJob = async (req, res) => {
   const { id: jobId } = req.params;
 
@@ -105,6 +121,9 @@ const deleteJob = async (req, res) => {
   res.status(StatusCodes.OK).json({ msg: 'Success! Job removed' });
 };
 
+// @desc Show statistics for all jobs
+// @route GET /jobs/stats
+// @access Public
 const showStats = async (req, res) => {
   let stats = await Job.aggregate([
     { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },

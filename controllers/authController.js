@@ -3,6 +3,13 @@ import { StatusCodes } from 'http-status-codes';
 import User from '../models/User.js';
 import { BadRequestError, UnAuthenticatedError } from '../errors/index.js';
 
+/**
+ * Auth Routes
+ */
+
+// @desc Register a user
+// @route POST /auth/register
+// @access Private
 const register = async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -29,6 +36,9 @@ const register = async (req, res) => {
   });
 };
 
+// @desc Login a user
+// @route POST /auth/login
+// @access Private
 const login = async (req, res) => {
   const { email, password } = req.body;
 
@@ -53,6 +63,9 @@ const login = async (req, res) => {
   res.status(StatusCodes.OK).json({ user, token, location: user.location });
 };
 
+// @desc Update a user
+// @route PATCH /auth/updateUser
+// @access Private
 const updateUser = async (req, res) => {
   const { email, name, lastName, location } = req.body;
 
