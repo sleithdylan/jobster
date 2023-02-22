@@ -2,6 +2,7 @@ import 'express-async-errors';
 import express from 'express';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
+import colors from 'colors';
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import helmet from 'helmet';
@@ -70,7 +71,7 @@ const start = async () => {
   try {
     await connectDB(process.env.MONGO_URL);
     app.listen(port, () => {
-      console.log(`Server is listening on port ${port}`);
+      console.log(`Server is listening on port ${port}`.yellow.bold);
     });
   } catch (error) {
     console.log(error);

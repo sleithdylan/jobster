@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import colors from 'colors';
 
 import jobs from './data/jobs.js';
 // DB and authenticateUser
@@ -17,7 +18,7 @@ const importData = async () => {
     // Insert sample data
     await Job.insertMany(jobs);
 
-    console.log('Data Imported!');
+    console.log('Data Imported!'.green.inverse);
     process.exit(0);
   } catch (error) {
     console.log(error);
@@ -32,7 +33,7 @@ const destroyData = async () => {
     // Delete existing data
     await Job.deleteMany();
 
-    console.log('Data Destroyed!');
+    console.log('Data Destroyed!'.red.inverse);
     process.exit(0);
   } catch (error) {
     console.log(error);
