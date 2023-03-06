@@ -18,8 +18,7 @@ function Profile() {
   const [lastName, setLastName] = useState(user?.lastName);
   const [location, setLocation] = useState(user?.location);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  // eslint-disable-next-line no-unused-vars
-  const [anchorEl, setAnchorEl] = useState(null);
+
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {

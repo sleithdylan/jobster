@@ -13,8 +13,6 @@ import Header from 'components/Header';
 function Stats() {
   const { logoutUser, showStats, isLoading } = useAppContext();
   const [drawerOpen, setDrawerOpen] = useState(false);
-  // eslint-disable-next-line no-unused-vars
-  const [anchorEl, setAnchorEl] = useState(null);
 
   useEffect(() => {
     showStats();

@@ -266,6 +266,7 @@ function AddJob() {
                 sx={{ px: 4, mt: 3 }}
                 type="submit"
                 disabled={isLoading}
+                loading={isLoading}
               >
                 {isLoading ? 'Please wait...' : 'Save'}
               </Button>

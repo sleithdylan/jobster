@@ -174,6 +174,7 @@ function Login() {
                       variant="solid"
                       fullWidth
                       disabled={isLoading}
+                      loading={isLoading}
                       sx={{
                         marginBottom: '1.5rem',
                       }}
@@ -187,6 +188,7 @@ function Login() {
                     variant="solid"
                     fullWidth
                     disabled={isLoading}
+                    loading={isLoading}
                     sx={{
                       marginBottom: '1.5rem',
                     }}
