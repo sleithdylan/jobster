@@ -72,7 +72,11 @@ const getAllJobs = async (req, res) => {
 
   const numOfPages = Math.ceil(totalJobs / limit);
 
-  res.status(StatusCodes.OK).json({ jobs, totalJobs, numOfPages: numOfPages });
+  setTimeout(() => {
+    res
+      .status(StatusCodes.OK)
+      .json({ jobs, totalJobs, numOfPages: numOfPages });
+  }, 750);
 };
 
 // @desc Update a job
@@ -197,9 +201,11 @@ const showStats = async (req, res) => {
     return { type, count };
   });
 
-  res
-    .status(StatusCodes.OK)
-    .json({ defaultStats, monthlyApplications, jobTypes });
+  setTimeout(() => {
+    res
+      .status(StatusCodes.OK)
+      .json({ defaultStats, monthlyApplications, jobTypes });
+  }, 750);
 };
 
 export { createJob, getAllJobs, updateJob, deleteJob, showStats };
