@@ -4,7 +4,6 @@
     <img src="./client/public/jobster-logo.svg" alt="Logo"  height="30">
   </a>
 	<br />
-	<br />
   <p align="center">
 A web application to help you stay on top of your job applications.
   </p>
@@ -13,7 +12,7 @@ A web application to help you stay on top of your job applications.
 
 ![Jobster](/client/public/jobster-github.png)
 
-## 🚀 Quick start
+## Quick Start 🚀
 
 Start running locally.
 
