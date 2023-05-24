@@ -29,6 +29,9 @@ describe('jobs', () => {
 
     // Assert
     expect(positionInput).toHaveValue('Software Engineer');
+    expect(companyInput).toHaveValue('Google');
+    expect(jobLocationInput).toHaveValue('Dublin');
     expect(statusInput).toHaveValue('interview');
+    expect(jobTypeInput).not.toHaveValue('hybrid');
   });
 });
