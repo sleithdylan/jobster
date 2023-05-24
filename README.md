@@ -5,12 +5,32 @@
   </a>
 	<br />
   <p align="center">
-A web application to help you stay on top of your job applications.
+    <i align="center">A web application designed to assist you in managing your job applications effectively.</i>
   </p>
   <br />
 </div>
 
 ![Jobster](/client/public/jobster-github.png)
+
+## Overview
+
+This is a fullstack applications developed using the MERN Stack. The application allows users to create and login to their own account and manage their job applcations through the user interface.
+
+<br/>
+
+## Features ⚡️
+
+- Modern UI Design
+- Single-page Application (SPA)
+- Styled with Material UI
+- Fully Responsive
+- Authentication
+
+<br/>
+
+<!-- ## Previews -->
+
+<!-- ## Tech Stack -->
 
 ## Quick Start 🚀
 
