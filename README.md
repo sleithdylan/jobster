@@ -28,9 +28,15 @@ This is a fullstack applications developed using the MERN Stack. The application
 
 <br/>
 
-<!-- ## Previews -->
+## Tech Stack
 
-<!-- ## Tech Stack -->
+**Client:** React, Context API, Material UI
+
+**Server:** Node.js, Express
+
+**Database:** MongoDB
+
+## Previews
 
 ## Quick Start 🚀
 
