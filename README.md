@@ -40,7 +40,7 @@ This is a fullstack applications developed using the MERN Stack. The application
 
 ## Preview 🔎
 
-https://github.com/sleithdylan/jobster/assets/30472715/7b36e8b9-abf4-4e00-91a4-2f346a94fa15
+https://github.com/sleithdylan/jobster/assets/30472715/51d0eefa-9119-4de4-8593-bf5674ab1d6a
 
 <br/>
 
