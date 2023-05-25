@@ -12,7 +12,7 @@
 
 ![Jobster](/client/public/jobster-github.png)
 
-## Overview
+## Overview 📌
 
 This is a fullstack applications developed using the MERN Stack. The application allows users to create and login to their own account and manage their job applcations through the user interface.
 
@@ -28,7 +28,7 @@ This is a fullstack applications developed using the MERN Stack. The application
 
 <br/>
 
-## Tech Stack
+## Tech Stack 🧰
 
 **Client:** React, Context API, Material UI
 
@@ -36,7 +36,13 @@ This is a fullstack applications developed using the MERN Stack. The application
 
 **Database:** MongoDB
 
-## Previews
+<br/>
+
+## Preview 🔎
+
+https://github.com/sleithdylan/jobster/assets/30472715/7b36e8b9-abf4-4e00-91a4-2f346a94fa15
+
+<br/>
 
 ## Quick Start 🚀
 
