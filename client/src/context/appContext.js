@@ -36,7 +36,6 @@ import {
 
 const token = localStorage.getItem('token');
 const user = localStorage.getItem('user');
-const userLocation = localStorage.getItem('location');
 
 const initialState = {
   isLoading: false,
@@ -45,11 +44,10 @@ const initialState = {
   alertType: '',
   user: user ? JSON.parse(user) : null,
   token: token,
-  userLocation: userLocation || '',
   editJobId: '',
   position: '',
   company: '',
-  jobLocation: userLocation || '',
+  jobLocation: '',
   jobTypeOptions: ['full-time', 'part-time', 'remote', 'hybrid', 'internship'],
   jobType: 'full-time',
   statusOptions: ['interview', 'declined', 'pending'],
