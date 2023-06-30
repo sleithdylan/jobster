@@ -3,7 +3,7 @@ import { screen, render, fireEvent } from '@testing-library/react';
 import { AppProvider } from 'context/appContext';
 import AddJob from 'pages/dashboard/AddJob';
 
-describe('jobs', () => {
+describe('<AddJob />', () => {
   test('should insert values into the fields', () => {
     // Arrange
     render(
