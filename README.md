@@ -14,7 +14,7 @@
 
 ## Overview 📌
 
-This is a fullstack applications developed using the MERN Stack. The application allows users to create and login to their own account and manage their job applcations through the user interface.
+This is a fullstack application developed using the MERN Stack. The application allows users to create and login to their own account and manage their job applications through the user interface.
 
 <br/>
 
